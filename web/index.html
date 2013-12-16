@@ -2,34 +2,11 @@
     <head>
         <title>BitBank: Our on-line bank</title>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />        
-        <link type="text/javascript" href="lib/bootstrap/js/bootstrap.js" />
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+        <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <script src="js/index.js"></script>
     </head>
-
-    <script>
-        var i = 1;
-        var j = 1;
-        var v;
-
-        function inicia() {
-            document.getElementById("capa1").style.display = "block";
-            v = setInterval('verCaja()', 4000);
-        }
-
-        function verCaja() {
-            for (j; j <= 4; j++) {
-                document.getElementById("capa" + j).style.display = "none";
-            }
-            document.getElementById("capa" + i).style.display = "block";
-            j = 1;
-            i++;
-            if (i === 5) {
-                i = 1;
-            }
-            ;
-        }
-    </script>
-
+    
     <body onLoad="inicia()">
         <div id="contenido">
             <div id="cabecera">
@@ -96,7 +73,6 @@
                     <li><p> Copyright © 2013 BitBank. All Rights Reserved.</p> </li>
                     <li><a href="#">Privacy</a></li>
                     <li><a href="#">Legal Agreements</a></li>
-
                 </ul>
             </div>
         </div>
