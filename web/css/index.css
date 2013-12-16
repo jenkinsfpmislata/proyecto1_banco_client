@@ -1,0 +1,200 @@
+/** Principal **/
+#contenido{
+    background-color:#F5F5F5;
+}
+
+/** Cabecera **/
+
+#cabecera{
+    width:auto;
+    height:4em;
+    background-image:url(../img/fondoCabecera.png);
+    box-shadow:0px 2px 2px 2px #6e6d71;
+}
+
+#cabecera #logo{
+    padding-top:0.2em;
+    float:left;	
+    padding-left:1em;
+}
+
+#cabecera #inicioSesion{
+    float:right;
+    width:34.5em;
+    height:4em;
+    padding-top:1em;
+    padding-left:4em;
+}
+#inicioSesion form{
+    float:left;
+    clear:right;
+
+}
+
+/** Carrusel **/
+
+#carrusel{
+    margin-top:1em;
+    width:auto;
+    height:20em;
+    margin-top: 3em;
+}
+
+#carrusel h2{
+    color:#0099FE;	
+    text-shadow:1px 1px #3276B1;
+}
+
+#carrusel #capa1, #carrusel #capa2, #carrusel #capa3, #carrusel #capa4{
+    margin:1em;
+    width:auto;
+    height:18em;
+    display:none;
+    background-size:80%;
+    padding:5% 0% 0% 5%;
+    border-radius:10px;
+}
+
+#carrusel #capa1{
+    background:url(../img/capa1.jpg) no-repeat;
+    background-size:100%;
+}
+
+#carrusel #capa2{
+    background:url(../img/capa2.jpg) no-repeat;
+    background-size:100%;
+}
+
+#carrusel #capa3{
+    background:url(../img/capa3.jpg) no-repeat;
+    background-size:100%;
+}
+
+#carrusel #capa4{
+    background:url(../img/capa4.jpg) no-repeat;
+    background-size:100%;
+}
+
+/** Info **/
+
+#infos{
+    width:auto;
+    height:20em;
+    margin-top:2em;
+    padding-left:2em;
+}
+
+#info1, #info2, #info3{
+    width:26%;
+    height:19.8em;
+    float:left;
+}
+
+#info1, #info2{
+    margin-right:7em; 
+}
+
+#info1 img, #info2 img, #info3 img{
+    width:245px;
+    height:135px;
+    border-radius: 10px;	
+}
+
+#info1 a{
+    margin-top:1.35em;
+}
+
+
+#info3 a{
+    margin-top:1.45em;	
+}
+
+/** Pie **/
+
+#pie{
+
+    background-image:url(../img/fondoCabecera.png);
+    width:auto;
+    height:14%;
+    margin-top:1em;
+}
+
+ul#menu {
+
+    list-style: none;
+    float: left;
+    width: 900px;
+    margin: 0;
+    padding: 0;
+    color:#F5F5F5;
+
+
+
+}
+
+ul#menu li {
+
+    float: left;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+ul#menu li a {
+
+    float: left;
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+
+}
+
+ul#menu li a:hover {
+    background: #333;
+    color: #f0f0f0;
+    border-radius:0px 0px 5px 5px;
+}
+
+ul#menu2 {
+
+    list-style: none;
+    float: left;
+    width: 900px;
+    margin: 0;
+    padding: 0;
+    color:#F5F5F5;
+
+
+
+}
+
+ul#menu2 li {
+
+    float: left;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+ul#menu2 li a {
+
+    float: left;
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+
+}
+
+ul#menu2 li p {
+
+    float: left;
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+
+}
