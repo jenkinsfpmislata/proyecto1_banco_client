@@ -34,7 +34,7 @@
 /** Carrusel **/
 
 #carrusel{
-    margin-top:1em;
+    margin-top:5%;
     width:auto;
     height:20em;
     margin-top: 3em;
@@ -80,8 +80,9 @@
 #infos{
     width:auto;
     height:20em;
-    margin-top:2em;
-    padding-left:2em;
+    margin-top:4%;
+    padding-left:1em;
+    padding-right:1em;
 }
 
 #info1, #info2, #info3{
@@ -91,7 +92,7 @@
 }
 
 #info1, #info2{
-    margin-right:7em; 
+    margin-right:11%; 
 }
 
 #info1 img, #info2 img, #info3 img{
@@ -116,7 +117,7 @@
     background-image:url(../img/fondoCabecera.png);
     width:auto;
     height:14%;
-    margin-top:1em;
+    margin-top:4.4%;
 }
 
 ul#menu {
