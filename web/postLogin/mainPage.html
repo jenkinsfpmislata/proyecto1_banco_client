@@ -10,38 +10,82 @@
         <div id="contenedor">
             <div id="cabecera">
 
-                  <p><img src="../img/bitcoin-logo-cyan.png" width="68" height="68">
+                <p><img src="../img/bitcoin-logo-cyan.png" width="60" height="60">
                     <a href="#">Help</a>
                     <a href="#">Logout</a>   
-                  </p>
+                </p>
             </div>
             <div id="menu">
                 <ul>
-                      <li><a onclick="">Enviar dinero</a></li>
-                      <li><a onclick="">Transacciones enviadas</a></li>
-                      <li><a onclick="">Transacciones pendientes</a></li>
-                      <li><a onclick="">Transacciones recibidas</a></li>
-                    </ul>
+                    <li><a onclick="">Enviar dinero</a></li>
+                    <li><a onclick="">Trans. enviadas</a></li>
+                    <li><a onclick="">Trans. pendientes</a></li>
+                    <li><a onclick="">Trans. recibidas</a></li>
+                </ul>
             </div>
             <div id="main">
-            <div id="notificaciones">
-                    <p>NOTIFICACIONES</p>  
+                <div id="notificaciones">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <td>Notificaciones</td>  
+                        </tr>
+                    </table>
                 </div>  
-            	<div id="usuario">
-                	<h3>Emilio Honrubia Mar&iacute;n </h3>
+                <div id="usuario">
+                    <h3>Emilio Honrubia Mar&iacute;n </h3>
                     <p>Tipo de cuenta: <i>Standard</i></p>
                 </div>
-            	<div id="saldo">
-                
+                <div id="borderbot"></div>
+                <div id="saldo">
+                    <h3>Saldo actual: 3699,07&euro;</h3>
+                    <p>Saldo actual en euros: 3699,07&euro;</p>
+                    <p>Saldo actual en dolares: 5034,43&dollar;</p>
+                    <h3>Saldo actual(Trans.pendientes-saldo actual): 3699,07&euro;</h3>
                 </div>
-                  
+
             </div>
 
             <div id="transacciones">
-                  <p>TRANSACCIONES</p>
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <td>ID Trans</td>
+                        <td>Fecha</td>
+                        <td>Concepto</td>
+                        <td>Cantidad</td>
+                        <td>Destinatario</td>
+                    </tr>
+                    <tr>
+                        <td>4412000145</td>
+                        <td>25/12/2013</td>
+                        <td>Compra-Venta</td>
+                        <td>-201.7&euro;</td>
+                        <td>PCCOMPONENTES</td> 
+                    </tr>
+                    <tr>
+                        <td>0015766577</td>
+                        <td>25/12/2013</td>
+                        <td>Comisiones</td>
+                        <td>-0.21&euro;</td>
+                        <td>BMN</td> 
+                    </tr>
+                    <tr>
+                        <td>0245778880</td>
+                        <td>20/11/2013</td>
+                        <td>Nomina</td>
+                        <td>+800.98&euro;</td>
+                        <td>Emilio Honrubia</td> 
+                    </tr>
+                    <tr>
+                        <td>1248572065</td>
+                        <td>03/11/2013</td>
+                        <td>Beca TesoroP</td>
+                        <td>+3100&euro;</td>
+                        <td>Emilio Honrubia</td>  
+                    </tr>
+                </table>
             </div>
             <div id="pie">
- 				
+
             </div>
         </div>
     </body>
