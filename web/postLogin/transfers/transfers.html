@@ -1,17 +1,22 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html>
     <head>
         <title>BitBank Account</title>
-        <link rel="stylesheet" type="text/css" href="../css/postLogin.css" />
-        <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css" />
-        <script src="../lib/bootstrap/js/bootstrap.js"></script>
-        <script src="../js/postLogin.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/postLogin.css" />
+        <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css" />
+        <script src="../../lib/bootstrap/js/bootstrap.js"></script>
+        <script src="../../js/postLogin.js"></script>
     </head>
     <body>
         <div id="cuerpo">
         <div id="contenedor">
             <div id="cabecera">
 
-                <p><img src="../img/bitcoin-logo-cyan.png" width="60" height="60">
+                <p><img src="../../img/bitcoin-logo-cyan.png" width="60" height="60">
                     <a href="#">Help</a>
                     <a href="#">Logout</a>   
                 </p>
@@ -19,35 +24,31 @@
             <div id="menu">
                 <ul>
                     <li><a href="#">Sent cash</a></li>
-                    <li><a href="transfers/transfers.html">Send transfers</a></li>
-                    <li><a href="transfers/transfers.html">Pending transfers</a></li>
-                    <li><a href="transfers/transfers.html">Recive transfers</a></li>
+                    <li><a href="transfers.html">Send transfers</a></li>
+                    <li><a href="transfers.html">Pending transfers</a></li>
+                    <li><a href="transfers.html">Recive transfers</a></li>
                 </ul>
             </div>
-            <div id="main">
-                <div id="notificaciones">
-                    <table class="table table-striped table-bordered">
-                        <tr>
-                            <td>Notifications</td>  
-                        </tr>
-                    </table>
-                </div>  
                 <div id="usuario">
                     <h3>Emilio Honrubia Mar&iacute;n </h3>
                     <p>Type account: <i>Standard</i></p>
                 </div>
-                <div class="border"></div>
-                <div id="saldo">
-                    <h3>Current cash: 3699,07&euro;</h3>
-                    <p>Current cash in euros: 3699,07&euro;</p>
-                    <p>Current cash in dollars: 5034,43&dollar;</p>
-                    <h3>Current cash(Pending transfers - current cash): 3699,07&euro;</h3>
-                </div>
-
+            <div class="border"></div>
+            <div id="selFecha">
+                <p>Select a date</p>
+                <form action="#">
+                    <select>
+                        <option>20-09-14 to 19-10-14</option>
+                        <option>19-07-14 to 20-08-14</option>
+                        <option>20-05-14 to 19-06-14</option>
+                        <option>19-03-14 to 29-04-14</option>
+                        <option>All transactions</option>
+                    </select>
+                </form>
+                
             </div>
-
             <div id="transacciones">
-                <h5>Last six transactions</h5>
+                <h4>Send transfers</h4>
                 <table class="table table-hover table-striped" id="tabla" >
                     <tr id="tcabecera">
                         <td>ID Trans</td>
