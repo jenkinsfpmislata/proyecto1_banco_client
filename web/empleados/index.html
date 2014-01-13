@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Internet Dreams</title>
+<title>BitBank WorkerPlace</title>
 <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
 <!--[if IE]>
 <link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
@@ -179,7 +179,7 @@ $(document).pngFix( );
 
 	<!-- start logo -->
 	<div id="logo">
-	<a href=""><img src="images/shared/logo.png" width="156" height="40" alt="" /></a>
+            <a href=""><img src="../img/bitcoin-logo-cyan.png" width="70" height="70" alt="" /></a>
 	</div>
 	<!-- end logo -->
 	
@@ -190,11 +190,10 @@ $(document).pngFix( );
 		<td><input type="text" value="Search" onblur="if (this.value=='') { this.value='Search'; }" onfocus="if (this.value=='Search') { this.value=''; }" class="top-search-inp" /></td>
 		<td>
 		<select  class="styledselect">
-			<option value=""> All</option>
-			<option value=""> Products</option>
-			<option value=""> Categories</option>
-			<option value="">Clients</option>
-			<option value="">News</option>
+			<option value=""> Banks</option>
+			<option value=""> Branches</option>
+			<option value=""> Transactions</option>
+			<option value="">Accounts</option>
 		</select> 
 		</td>
 		<td>
@@ -256,28 +255,23 @@ $(document).pngFix( );
 		<div class="nav">
 		<div class="table">
 		
-		<ul class="select"><li><a href="#nogo"><b>Dashboard</b><!--[if IE 7]><!--></a><!--<![endif]-->
+		<ul class="current"><li><a href="#nogo"><b>WorkPlace</b><!--[if IE 7]><!--></a><!--<![endif]-->
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<div class="select_sub">
-			<ul class="sub">
-				<li><a href="#nogo">Dashboard Details 1</a></li>
-				<li><a href="#nogo">Dashboard Details 2</a></li>
-				<li><a href="#nogo">Dashboard Details 3</a></li>
-			</ul>
-		</div>
+
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
 		</li>
 		</ul>
 		
 		<div class="nav-divider">&nbsp;</div>
 		                    
-		<ul class="current"><li><a href="#nogo"><b>Products</b><!--[if IE 7]><!--></a><!--<![endif]-->
+		<ul class="select"><li><a href="#nogo"><b>Banks</b><!--[if IE 7]><!--></a><!--<![endif]-->
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<div class="select_sub show">
+		<div class="select_sub">
 			<ul class="sub">
-				<li><a href="#nogo">View all products</a></li>
-				<li class="sub_show"><a href="#nogo">Add product</a></li>
-				<li><a href="#nogo">Delete products</a></li>
+				<li><a href="#nogo">Search bank</a></li>
+				<li class="sub_show"><a href="#nogo">Add bank</a></li>
+				<li><a href="#nogo">Delete bank</a></li>
+                                <li><a href="#nogo">Update bank</a></li>
 			</ul>
 		</div>
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
@@ -286,13 +280,14 @@ $(document).pngFix( );
 		
 		<div class="nav-divider">&nbsp;</div>
 		
-		<ul class="select"><li><a href="#nogo"><b>Categories</b><!--[if IE 7]><!--></a><!--<![endif]-->
+		<ul class="select"><li><a href="#nogo"><b>Bank branch</b><!--[if IE 7]><!--></a><!--<![endif]-->
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<div class="select_sub">
 			<ul class="sub">
-				<li><a href="#nogo">Categories Details 1</a></li>
-				<li><a href="#nogo">Categories Details 2</a></li>
-				<li><a href="#nogo">Categories Details 3</a></li>
+				<li><a href="#nogo">Search bank branch</a></li>
+                                <li><a href="#nogo">Add bank branch</a></li>
+				<li><a href="#nogo">Update bank branch</a></li>
+				<li><a href="#nogo">Delete bank branch</a></li>
 			</ul>
 		</div>
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
@@ -305,25 +300,9 @@ $(document).pngFix( );
 		<!--[if lte IE 6]><table><tr><td><![endif]-->
 		<div class="select_sub">
 			<ul class="sub">
-				<li><a href="#nogo">Clients Details 1</a></li>
-				<li><a href="#nogo">Clients Details 2</a></li>
-				<li><a href="#nogo">Clients Details 3</a></li>
+				<li><a href="#nogo">Transactions</a></li>
+				<li><a href="#nogo">Accounts</a></li>
 			 
-			</ul>
-		</div>
-		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-		</li>
-		</ul>
-		
-		<div class="nav-divider">&nbsp;</div>
-		
-		<ul class="select"><li><a href="#nogo"><b>News</b><!--[if IE 7]><!--></a><!--<![endif]-->
-		<!--[if lte IE 6]><table><tr><td><![endif]-->
-		<div class="select_sub">
-			<ul class="sub">
-				<li><a href="#nogo">News details 1</a></li>
-				<li><a href="#nogo">News details 2</a></li>
-				<li><a href="#nogo">News details 3</a></li>
 			</ul>
 		</div>
 		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
@@ -349,63 +328,6 @@ $(document).pngFix( );
 <!-- start content -->
 <div id="content">
 
-	<!--  start page-heading -->
-	<div id="page-heading">
-		<h1>Add product</h1>
-	</div>
-	<!-- end page-heading -->
-
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
-	<tr>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
-		<th class="topleft"></th>
-		<td id="tbl-border-top">&nbsp;</td>
-		<th class="topright"></th>
-		<th rowspan="3" class="sized"><img src="images/shared/side_shadowright.jpg" width="20" height="300" alt="" /></th>
-	</tr>
-	<tr>
-		<td id="tbl-border-left"></td>
-		<td>
-		<!--  start content-table-inner ...................................................................... START -->
-		<div id="content-table-inner">
-		
-			<!--  start table-content  -->
-			<div id="table-content">
-			<h2>Sub Heading </h2>
-			<h3>Local Heading</h3>
-			
-			Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet consectetur 
-			adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet consectetur 
-			adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolore magna aliqua. 
-			<br />
-			<br />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet consectetur 
-			adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet consectetur 
-			adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolore magna aliqua. 
-			<br />
-			<br />
-			Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet consectetur 
-			adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et Lorem ipsum dolor sit amet consectetur 
-			adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  dolore magna aliqua. 
-			
-			
-			</div>
-			<!--  end table-content  -->
-	
-			<div class="clear"></div>
-		 
-		</div>
-		<!--  end content-table-inner ............................................END  -->
-		</td>
-		<td id="tbl-border-right"></td>
-	</tr>
-	<tr>
-		<th class="sized bottomleft"></th>
-		<td id="tbl-border-bottom">&nbsp;</td>
-		<th class="sized bottomright"></th>
-	</tr>
-	</table>
-	<div class="clear">&nbsp;</div>
 
 </div>
 <!--  end content -->
@@ -420,7 +342,7 @@ $(document).pngFix( );
 <!-- <div id="footer-pad">&nbsp;</div> -->
 	<!--  start footer-left -->
 	<div id="footer-left">
-	Admin Skin &copy; Copyright Internet Dreams Ltd. <a href="">www.netdreams.co.uk</a>. All rights reserved.</div>
+	Admin BitBank &copy; Copyright BitBank Ltd. All rights reserved.</div>
 	<!--  end footer-left -->
 	<div class="clear">&nbsp;</div>
 </div>
