@@ -1,3 +1,1 @@
-app.controller('ClientemainCtrl', function($scope){
-
-});
+app.controller('MainCtrl', function(){});

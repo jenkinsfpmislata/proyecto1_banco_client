@@ -1,14 +1,40 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
+<html ng-app="app">
     <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>BitBank Account</title>
+        <script src="../lib/angularjs/js/angular.js"></script>
+        <script src="../lib/angularjs/js/angular-route.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/postLogin.css" />
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css" />
+        <script src="../lib/bootstrap/js/bootstrap.js"></script>
+        <script src="main.js"></script>
     </head>
+    
     <body>
-        <div>TODO write content</div>
+        <div id="cuerpo">
+            <div id="contenedor">
+                <div id="cabecera">
+
+                    <p><img src="../img/bitcoin-logo-cyan.png" width="60" height="60">
+                        <a href="#">Help</a>
+                        <a href="#">Logout</a>   
+                    </p>
+                </div>
+                <div id="menu">
+                    <ul>
+
+                        <li><a href="#">Sent cash</a></li>
+                        <li><a href="transfers/transfers.html">Send transfers</a></li>
+                        <li><a href="transfers/transfers.html">Pending transfers</a></li>
+                        <li><a href="transfers/transfers.html">Recive transfers</a></li>
+                    </ul>
+                </div>
+                <div id="contentpage">
+                    <ng-view></ng-view>
+                </div>
+                <div id="pie">
+                    <p>BitBank&COPY; 2014 All rights reserved</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
