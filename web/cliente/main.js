@@ -1,1 +1,3 @@
-app.controller('MainCtrl', function(){});
+app.controller('MainCtrl', function(){
+
+});
