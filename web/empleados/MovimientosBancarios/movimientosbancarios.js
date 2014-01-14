@@ -5,7 +5,7 @@ var app = angular.module("app", []);
 app.controller('MovimientosBancariosReadAllCtrl', function($scope, $http) {
     $scope.movimientosBancarios = null;
 
-    $http.get("http://localhost:8084/Banco/MovimientosBancarios.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/MovimientosBancarios.json.jsp").success(function(result) {
         $scope.movimientosBancarios = result;
     });
 });
@@ -14,15 +14,15 @@ app.controller("MovimientosBancariosReadCtrl", function($scope, $http) {
     $scope.movimientosBancarios = null;
     var parametros = getQueryStringParameters();
 
-    $http.get("http://localhost:8084/Banco/MovimientoBancario.json.jsp?id=" + parametros.id).success(function(r) {
+    $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/MovimientoBancario.json.jsp?id=" + parametros.id).success(function(r) {
         $scope.movimientosBancarios = r;
     });
 });
 
 app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http) {
     $scope.movimientosBancarios = null;
-    $http.get("http://localhost:8084/Banco/DeleteMovimiento.json.jsp?id=" + idEntidadBancaria).success(function() {
-        $http.get("http://localhost:8084/Banco/MovimientosBancarios.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/DeleteMovimiento.json.jsp?id=" + idEntidadBancaria).success(function() {
+        $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/MovimientosBancarios.json.jsp").success(function(result) {
             $scope.movimientosBancarios = result;
         });
     });
@@ -31,8 +31,8 @@ app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http) {
 
 app.controller('MovimientosBancariosInsertCtrl', function($scope, $http) {
     $scope.movimientosBancarios = null;
-    $http.get("http://localhost:8084/Banco/InsertMovimiento.json.jsp").success(function() {
-        $http.get("http://localhost:8084/Banco/MovimientosBancarios.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/InsertMovimiento.json.jsp").success(function() {
+        $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/MovimientosBancarios.json.jsp").success(function(result) {
             $scope.movimientosBancarios = result;
         });
     });
@@ -40,8 +40,8 @@ app.controller('MovimientosBancariosInsertCtrl', function($scope, $http) {
 
 app.controller('MovimientosBancariosUpdateCtrl', function($scope, $http) {
     $scope.movimientosBancarios = null;
-    $http.get("http://localhost:8084/Banco/UpdateMovimiento.json.jsp").success(function() {
-        $http.get("http://localhost:8084/Banco/MovimientosBancarios.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/UpdateMovimiento.json.jsp").success(function() {
+        $http.get("http://localhost:8084/Banco/jsp/movimientobancariojson/MovimientosBancarios.json.jsp").success(function(result) {
             $scope.movimientosBancarios = result;
         });
     });

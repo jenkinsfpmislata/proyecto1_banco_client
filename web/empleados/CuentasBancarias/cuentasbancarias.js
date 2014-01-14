@@ -5,7 +5,7 @@ var app = angular.module("app", []);
 app.controller('CuentasBancariasReadAllCtrl', function($scope, $http) {
     $scope.cuentasBancarias = null;
 
-    $http.get("http://localhost:8084/Banco/CuentasBancarias.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/cuentabancariajson/CuentasBancarias.json.jsp").success(function(result) {
         $scope.cuentasBancarias = result;
     });
 });
@@ -14,15 +14,15 @@ app.controller("CuentasBancariasReadCtrl", function($scope, $http) {
     $scope.cuentasBancarias = null;
     var parametros = getQueryStringParameters();
 
-    $http.get("http://localhost:8084/Banco/CuentaBancaria.json.jsp?id=" + parametros.id).success(function(r) {
+    $http.get("http://localhost:8084/Banco/jsp/cuentabancariajson/CuentaBancaria.json.jsp?id=" + parametros.id).success(function(r) {
         $scope.cuentasBancarias = r;
     });
 });
 
 app.controller('CuentasBancariasDeleteCtrl', function($scope, $http) {
     $scope.cuentasBancarias = null;
-    $http.get("http://localhost:8084/Banco/DeleteCuenta.json.jsp?id=" + idEntidadBancaria).success(function() {
-        $http.get("http://localhost:8084/Banco/CuentasBancarias.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/cuentabancariajson/DeleteCuenta.json.jsp?id=" + idEntidadBancaria).success(function() {
+        $http.get("http://localhost:8084/jsp/cuentabancariajson/Banco/CuentasBancarias.json.jsp").success(function(result) {
             $scope.cuentasBancarias = result;
         });
     });
@@ -31,8 +31,8 @@ app.controller('CuentasBancariasDeleteCtrl', function($scope, $http) {
 
 app.controller('CuentasBancariasInsertCtrl', function($scope, $http) {
     $scope.cuentasBancarias = null;
-    $http.get("http://localhost:8084/Banco/InsertCuenta.json.jsp").success(function() {
-        $http.get("http://localhost:8084/Banco/CuentasBancarias.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/cuentabancariajson/InsertCuenta.json.jsp").success(function() {
+        $http.get("http://localhost:8084/Banco/jsp/cuentabancariajson/CuentasBancarias.json.jsp").success(function(result) {
             $scope.cuentasBancarias = result;
         });
     });
@@ -40,8 +40,8 @@ app.controller('CuentasBancariasInsertCtrl', function($scope, $http) {
 
 app.controller('CuentasBancariasUpdateCtrl', function($scope, $http) {
     $scope.cuentasBancarias = null;
-    $http.get("http://localhost:8084/Banco/UpdateCuenta.json.jsp").success(function() {
-        $http.get("http://localhost:8084/Banco/CuentasBancarias.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/jsp/cuentabancariajson/UpdateCuenta.json.jsp").success(function() {
+        $http.get("http://localhost:8084/Banco/jsp/cuentabancariajson/CuentasBancarias.json.jsp").success(function(result) {
             $scope.cuentasBancarias = result;
         });
     });
