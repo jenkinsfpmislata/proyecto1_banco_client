@@ -1,117 +1,80 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>BitBank Account</title>
-        <link rel="stylesheet" type="text/css" href="../../css/postLogin.css" />
-        <link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css" />
-        <script src="../../lib/bootstrap/js/bootstrap.js"></script>
-        <script src="../../js/postLogin.js"></script>
-    </head>
-    <body>
-        <div id="cuerpo">
-        <div id="contenedor">
-            <div id="cabecera">
+<div id="usuario">
+    <h3>Emilio Honrubia Mar&iacute;n </h3>
+    <p>Type account: <i>Standard</i></p>
+</div>
+<div class="border"></div>
+<div id="selFecha">
+    <p>Select a date</p>
+    <form action="#">
+        <select>
+            <option>20-09-14 to 19-10-14</option>
+            <option>19-07-14 to 20-08-14</option>
+            <option>20-05-14 to 19-06-14</option>
+            <option>19-03-14 to 29-04-14</option>
+            <option>All transactions</option>
+        </select>
+    </form>
 
-                <p><img src="../../img/bitcoin-logo-cyan.png" width="60" height="60">
-                    <a href="#">Help</a>
-                    <a href="#">Logout</a>   
-                </p>
-            </div>
-            <div id="menu">
-                <ul>
-                    <li><a href="#">Sent cash</a></li>
-                    <li><a href="transfers.html">Send transfers</a></li>
-                    <li><a href="transfers.html">Pending transfers</a></li>
-                    <li><a href="transfers.html">Recive transfers</a></li>
-                </ul>
-            </div>
-                <div id="usuario">
-                    <h3>Emilio Honrubia Mar&iacute;n </h3>
-                    <p>Type account: <i>Standard</i></p>
-                </div>
-            <div class="border"></div>
-            <div id="selFecha">
-                <p>Select a date</p>
-                <form action="#">
-                    <select>
-                        <option>20-09-14 to 19-10-14</option>
-                        <option>19-07-14 to 20-08-14</option>
-                        <option>20-05-14 to 19-06-14</option>
-                        <option>19-03-14 to 29-04-14</option>
-                        <option>All transactions</option>
-                    </select>
-                </form>
-                
-            </div>
-            <div id="transacciones">
-                <h4>Send transfers</h4>
-                <table class="table table-hover table-striped" id="tabla" >
-                    <tr id="tcabecera">
-                        <td>ID Trans</td>
-                        <td>Date</td>
-                        <td>Concept</td>
-                        <td>Amount</td>
-                        <td>Status</td>
-                        <td>Destinatario</td>
-                    </tr>
-                    <tr>
-                        <td>44205478788</td>
-                        <td>8/01/2014</td>
-                        <td>Paysheet</td>
-                        <td>+800.98&euro;</td>
-                        <td>Pending</td>
-                        <td>Emilio Honrubia</td>  
-                    </tr>
-                    <tr>
-                        <td>0124857887</td>
-                        <td>03/01/2014</td>
-                        <td>Transfer</td>
-                        <td>+50&euro;</td>
-                        <td>Recive</td>
-                        <td>Emilio Honrubia</td>  
-                    </tr>
-                    <tr>
-                        <td>4412000145</td>
-                        <td>25/12/2013</td>
-                        <td>Compra-Venta</td>
-                        <td>-201.7&euro;</td>
-                        <td>Sent</td>
-                        <td>PCCOMPONENTES</td> 
-                    </tr>
-                    <tr>
-                        <td>0015766577</td>
-                        <td>25/12/2013</td>
-                        <td>Comisiones</td>
-                        <td>-0.21&euro;</td>
-                        <td>Sent</td>
-                        <td>BMN</td> 
-                    </tr>
-                    <tr>
-                        <td>0245778880</td>
-                        <td>20/11/2013</td>
-                        <td>Nomina</td>
-                        <td>+800.98&euro;</td>
-                        <td>Recive</td>
-                        <td>Emilio Honrubia</td> 
-                    </tr>
-                    <tr>
-                        <td>1248572065</td>
-                        <td>03/11/2013</td>
-                        <td>Beca TesoroP</td>
-                        <td>+3100&euro;</td>
-                        <td>Recive</td>
-                        <td>Emilio Honrubia</td>  
-                    </tr>
-                </table>
-            </div>
-            <div id="pie">
-                <p>BitBank&COPY; 2014 All rights reserved</p>
-            </div>
-        </div>
-        </div>
-    </body>
-</html>
+</div>
+<div id="transacciones">
+    <h4>Send transfers</h4>
+    <table class="table table-hover table-striped" id="tabla" >
+        <tr id="tcabecera">
+            <td>ID Trans</td>
+            <td>Date</td>
+            <td>Concept</td>
+            <td>Amount</td>
+            <td>Status</td>
+            <td>Destinatario</td>
+        </tr>
+        <tr>
+            <td>44205478788</td>
+            <td>8/01/2014</td>
+            <td>Paysheet</td>
+            <td>+800.98&euro;</td>
+            <td>Pending</td>
+            <td>Emilio Honrubia</td>  
+        </tr>
+        <tr>
+            <td>0124857887</td>
+            <td>03/01/2014</td>
+            <td>Transfer</td>
+            <td>+50&euro;</td>
+            <td>Recive</td>
+            <td>Emilio Honrubia</td>  
+        </tr>
+        <tr>
+            <td>4412000145</td>
+            <td>25/12/2013</td>
+            <td>Compra-Venta</td>
+            <td>-201.7&euro;</td>
+            <td>Sent</td>
+            <td>PCCOMPONENTES</td> 
+        </tr>
+        <tr>
+            <td>0015766577</td>
+            <td>25/12/2013</td>
+            <td>Comisiones</td>
+            <td>-0.21&euro;</td>
+            <td>Sent</td>
+            <td>BMN</td> 
+        </tr>
+        <tr>
+            <td>0245778880</td>
+            <td>20/11/2013</td>
+            <td>Nomina</td>
+            <td>+800.98&euro;</td>
+            <td>Recive</td>
+            <td>Emilio Honrubia</td> 
+        </tr>
+        <tr>
+            <td>1248572065</td>
+            <td>03/11/2013</td>
+            <td>Beca TesoroP</td>
+            <td>+3100&euro;</td>
+            <td>Recive</td>
+            <td>Emilio Honrubia</td>  
+        </tr>
+    </table>
+</div>
+
