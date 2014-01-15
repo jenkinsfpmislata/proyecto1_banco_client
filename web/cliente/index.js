@@ -7,7 +7,7 @@ app.config(function($routeProvider) {
                 controller: "MainCtrl"
             });
             
-            $routeProvider.when('transfers/transfers',
+            $routeProvider.when('transfers/transfers.html',
             {
                 templateUrl: "transfers/transfers.html",
                 controller: "TransfersCtrl"
