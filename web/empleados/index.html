@@ -1,8 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+    
+<head ng-app="app">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>BitBank WorkerPlace</title>
+        <script src="../lib/bootstrap/js/jquery-1.10.2.js"></script>
+        <script src="../lib/angularjs/js/angular.js"></script>
+        <script src="../lib/angularjs/js/angular-route.js"></script>
+        <script src="../lib/bootstrap/js/bootstrap.js"></script>
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css" />
+        <script src="index.js"></script>
+        <script src="main.js"></script> 
 <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
 <!--[if IE]>
 <link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
@@ -327,8 +335,7 @@ $(document).pngFix( );
 <div id="content-outer">
 <!-- start content -->
 <div id="content">
-
-
+    <ng-view></ng-view>
 </div>
 <!--  end content -->
 <div class="clear">&nbsp;</div>
