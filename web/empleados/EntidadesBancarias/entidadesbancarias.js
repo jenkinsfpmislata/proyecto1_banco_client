@@ -4,11 +4,12 @@ var app = angular.module("app", []);
 
 app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
-
-    $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
+    $scope.readAll = function(){
+      $http.get("http://localhost:8084/Banco/api/EntidadesBancarias").success(function(result) {
         $scope.entidadesBancarias = result;
     });
-
+    };
+    
 });
 
 app.controller("EntidadesBancariasReadCtrl", function($scope, $http) {
