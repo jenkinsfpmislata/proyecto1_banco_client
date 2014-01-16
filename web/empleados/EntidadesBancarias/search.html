@@ -1,13 +1,11 @@
 <div id="content-outer">
 <!-- start content -->
 <div id="content">
-
 	<!--  start page-heading -->
 	<div id="page-heading">
 		<h1>Entity Banks</h1>
 	</div>
 	<!-- end page-heading -->
-
 	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
 	<tr>
 		<th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
@@ -21,10 +19,8 @@
 		<td>
 		<!--  start content-table-inner ...................................................................... START -->
 		<div id="content-table-inner">
-		
 			<!--  start table-content  -->
 			<div id="table-content">
-			
 				<!--  start message-yellow -->
                                 <div id="message-yellow" style="display: none">
 				<table border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -68,8 +64,6 @@
 				</table>
 				</div>
 				<!--  end message-green -->
-		
-		 
 				<!--  start product-table ..................................................................................... -->
 				<form id="mainform" action="">
 				<table  border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
@@ -102,18 +96,14 @@
 		
 			<!--  start actions-box ............................................... -->
 			<div id="actions-box">
-				
-                            <form ng-submit="readById()" >
-                                        <h5>Entity ID:</h5><input type="text" class="inp-form"/>
-                                        <input type="submit" class="form-submit" value="Search">
-                                    </form>
-				
+                            <form role="form" >
+                                        <h5>Entity ID:</h5><input type="text" name="id" ng-model="entidadBancaria.idEntidad" class="inp-form"/>
+                                        <button type="button" class="form-submit" ng-click="">Search</button>
+                                    </form>	
 				<div class="clear"></div>
 			</div>
 			<!-- end actions-box........... -->
-			
 			<div class="clear"></div>
-		 
 		</div>
 		<!--  end content-table-inner ............................................END  -->
 		</td>
@@ -126,7 +116,6 @@
 	</tr>
 	</table>
 	<div class="clear">&nbsp;</div>
-
 </div>
 <!--  end content -->
 <div class="clear">&nbsp;</div>

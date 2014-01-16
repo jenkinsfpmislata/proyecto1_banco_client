@@ -1,6 +1,6 @@
 
 ///////////////// Controladores //////////////////////////////
-                
+
 app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
 
@@ -15,19 +15,19 @@ app.controller("EntidadesBancariasReadCtrl", function($scope, $http, $routeParam
     $scope.entidadBancaria = null;
     var id = $routeParams.id;
 
-    $http.get("http://localhost:8084/Banco/api/EntidadBancaria/"+readById()).success(function(r) {
+    $http.get("http://localhost:8084/Banco/api/EntidadBancaria/"+id).success(function(r) {
         $scope.entidadBancaria = r;
     });
     
-    $scope.readById = function(id){
-        return parseInt(id);
+    $scope.inicio = function(){
+        
     };
 });
 
 app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http, $routeParams) {
     $scope.entidadesBancarias = null;
     var id = $routeParams.id;
-    $http.delete("http://localhost:8084/Banco/api/EntidadBancaria/"+id).success(function() {
+    $http.delete("http://localhost:8084/Banco/api/EntidadBancaria/" + id).success(function() {
         $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
             $scope.entidadesBancarias = result;
         });
