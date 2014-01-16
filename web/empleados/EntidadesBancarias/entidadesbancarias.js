@@ -20,10 +20,10 @@ app.controller("EntidadesBancariasReadCtrl", function($scope, $http) {
     });
 });
 
-app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http) {
-    var parametros = getQueryStringParameters();
+app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http, $routeParams) {
     $scope.entidadesBancarias = null;
-    $http.delete("http://localhost:8084/Banco/api/EntidadBancaria/" + parametros.id).success(function() {
+    var id = $routeParams.id;
+    $http.delete("http://localhost:8084/Banco/api/EntidadBancaria/"+id).success(function() {
         $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
             $scope.entidadesBancarias = result;
         });

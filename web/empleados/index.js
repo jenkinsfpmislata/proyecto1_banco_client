@@ -11,10 +11,27 @@ app.config(function($routeProvider) {
                 templateUrl: "EntidadesBancarias/search.html",
                 controller: "EntidadesBancariasReadAllCtrl"
             })
+            
+            .when("/EntidadesBancariasDelete/:id", {
+                templateUrl:"EntidadesBancarias/search.html",
+                controller: "EntidadesBancariasDeleteCtrl"
+            })
+            
+            .when("/EntidadesBancariasInsert/", {
+                templateUrl:"EntidadesBancarias/FormAddEntity.html",
+                controller: "EntidadesBancariasInsertCtrl"
+            })
+            
             .when("/SucursalesBancarias/", {
                 templateUrl: "SucursalesBancarias/search.html",
                 controller: "SucursalesBancariasReadAllCtrl"
             })
+            
+            .when("/EntidadesBancariasDelete/:id", {
+                templateUrl:"SucursalesBancarias/search.html",
+                controller: "SucursalesBancariasDeleteCtrl"
+            })
+            
         .otherwise({
         redirectTo: "/"
     });

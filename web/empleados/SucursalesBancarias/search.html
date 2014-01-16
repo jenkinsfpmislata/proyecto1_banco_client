@@ -4,7 +4,7 @@
 
 	<!--  start page-heading -->
 	<div id="page-heading">
-		<h1>Last Updates</h1>
+		<h1>Entity Branch</h1>
 	</div>
 	<!-- end page-heading -->
 
@@ -75,23 +75,21 @@
 				<table  border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
 				<tr>
 					<th class="table-header-check"><a id="toggle-all" ></a> </th>
-					<th class="table-header-repeat line-left minwidth-1"><a href="">Id</a>	</th>
-					<th class="table-header-repeat line-left minwidth-1"><a href="">Codigo</a></th>
-					<th class="table-header-repeat line-left"><a href="">Nombre</a></th>
-					<th class="table-header-repeat line-left"><a href="">CIF</a></th>
-					<th class="table-header-repeat line-left"><a href="">Tipo</a></th>
+					<th class="table-header-repeat line-left minwidth-1"><a href="">BranchID</a>	</th>
+					<th class="table-header-repeat line-left minwidth-1"><a href="">EntityID</a></th>
+					<th class="table-header-repeat line-left"><a href="">Code</a></th>
+					<th class="table-header-repeat line-left"><a href="">Name</a></th>
 					<th class="table-header-options line-left"><a href="">Options</a></th>
 				</tr>
-				<tr ng-repeat="entidadBancaria in entidadesBancarias">
+				<tr ng-repeat="sucursalBancaria in sucursalesBancarias">
 					<td><input  type="checkbox"/></td>
-					<td>{{entidadBancaria.idEntidad}}</td>
-					<td>{{entidadBancaria.codigoEntidadBancaria}}</td>
-					<td>{{entidadBancaria.nombre}}</td>
-					<td>{{entidadBancaria.cif}}</td>
-					<td>{{entidadBancaria.tipo}}</td>
+					<td>{{sucursalBancaria.idSucursalBancaria}}</td>
+					<td>{{sucursalBancaria.idEntidadBancaria}}</td>
+					<td>{{sucursalBancaria.codigoSucursal}}</td>
+					<td>{{sucursalBancaria.nombreSucursal}}</td>
 					<td class="options-width">
 					<a href="" title="Edit" class="icon-1 info-tooltip"></a>
-					<a href="" title="Edit" class="icon-2 info-tooltip"></a>
+					<a href="#/EntidadesBancariasDelete/{{sucursalBancaria.idSucursalBancaria}}" title="Delete" class="icon-2 info-tooltip"></a>
 					</td>
 				</tr>
 				</table>

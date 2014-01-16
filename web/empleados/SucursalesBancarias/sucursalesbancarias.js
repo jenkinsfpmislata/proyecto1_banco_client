@@ -17,10 +17,10 @@ app.controller("SucursalesBancariasReadCtrl", function($scope, $http) {
     });
 });
 
-app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http) {
+app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http, $routeParams) {
     $scope.sucursalesBancarias = null;
-    var parametros = getQueryStringParameters();
-    $http.delete("http://localhost:8084/Banco/api/SucursalBancaria/" + parametros.id).success(function() {
+    var id = $routeParams.id;
+    $http.delete("http://localhost:8084/Banco/api/SucursalBancaria/"+id).success(function() {
         $http.get("http://localhost:8084/Banco/api/SucursalesBancarias/").success(function(result) {
             $scope.sucursalesBancarias = result;
         });

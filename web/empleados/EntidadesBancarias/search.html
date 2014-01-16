@@ -4,7 +4,7 @@
 
 	<!--  start page-heading -->
 	<div id="page-heading">
-		<h1>Last Updates</h1>
+		<h1>Entity Banks</h1>
 	</div>
 	<!-- end page-heading -->
 
@@ -76,10 +76,10 @@
 				<tr>
 					<th class="table-header-check"><a id="toggle-all" ></a> </th>
 					<th class="table-header-repeat line-left minwidth-1"><a href="">Id</a>	</th>
-					<th class="table-header-repeat line-left minwidth-1"><a href="">Codigo</a></th>
-					<th class="table-header-repeat line-left"><a href="">Nombre</a></th>
+					<th class="table-header-repeat line-left minwidth-1"><a href="">Code</a></th>
+					<th class="table-header-repeat line-left"><a href="">Name</a></th>
 					<th class="table-header-repeat line-left"><a href="">CIF</a></th>
-					<th class="table-header-repeat line-left"><a href="">Tipo</a></th>
+					<th class="table-header-repeat line-left"><a href="">Type</a></th>
 					<th class="table-header-options line-left"><a href="">Options</a></th>
 				</tr>
 				<tr ng-repeat="entidadBancaria in entidadesBancarias">
@@ -91,7 +91,7 @@
 					<td>{{entidadBancaria.tipo}}</td>
 					<td class="options-width">
 					<a href="" title="Edit" class="icon-1 info-tooltip"></a>
-					<a href="" title="Edit" class="icon-2 info-tooltip"></a>
+					<a href="#/EntidadesBancariasDelete/{{entidadBancaria.idEntidad}}" title="Delete" class="icon-2 info-tooltip"></a>
 					</td>
 				</tr>
 				</table>
@@ -102,11 +102,12 @@
 		
 			<!--  start actions-box ............................................... -->
 			<div id="actions-box">
-				<a href="" class="action-slider"></a>
-				<div id="actions-box-slider">
-					<a href="" class="action-edit">Edit</a>
-					<a href="" class="action-delete">Delete</a>
-				</div>
+				
+                                    <form action="#/EntidadBancaria/">
+                                        <h5>Entity ID:</h5><input type="text" name="id" class="inp-form"/>
+                                        <input type="submit" class="form-submit" value="Search">
+                                    </form>
+				
 				<div class="clear"></div>
 			</div>
 			<!-- end actions-box........... -->
@@ -120,14 +121,6 @@
 				<div id="page-info">Page <strong>1</strong> / 15</div>
 				<a href="" class="page-right"></a>
 				<a href="" class="page-far-right"></a>
-			</td>
-			<td>
-			<select  class="styledselect_pages">
-				<option value="">Number of rows</option>
-				<option value="">1</option>
-				<option value="">2</option>
-				<option value="">3</option>
-			</select>
 			</td>
 			</tr>
 			</table>
