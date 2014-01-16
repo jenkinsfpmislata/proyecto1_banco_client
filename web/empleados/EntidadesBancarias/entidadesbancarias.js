@@ -1,16 +1,15 @@
-var app = angular.module("app", []);
 
 ///////////////// Controladores //////////////////////////////
-
+                
 app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
-    $scope.readAll = function(){
-      $http.get("http://localhost:8084/Banco/api/EntidadesBancarias").success(function(result) {
+
+    $http.get("http://localhost:8084/Banco/api/EntidadesBancarias").success(function(result) {
         $scope.entidadesBancarias = result;
     });
-    };
-    
+
 });
+
 
 app.controller("EntidadesBancariasReadCtrl", function($scope, $http) {
     $scope.entidadBancaria = null;
