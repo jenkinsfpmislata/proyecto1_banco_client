@@ -53,54 +53,26 @@ app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $location
 
 });
 
-app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http) {
-    $scope.entidadesBancarias = null;
-    var parametros = getQueryStringParameters();
-    $http.put("http://localhost:8084/Banco/api/EntidadBancaria/" + parametros.id).success(function() {
-        $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
-            $scope.entidadesBancarias = result;
-        });
-    });
-});
-
-
-
-///////////////////// Funciones ////////////////////////
-function getQueryStringParameters() {
-    var queryString = window.location.search.substr(1); //El substr(1) es para quitarel "?" del principio;
-    var parejaParametros = queryString.split('&');
-
-    var parametros = {};
-
-    if (parejaParametros !== "") {
-        for (var i = 0; i < parejaParametros.length; ++i)
-        {
-            var parejaParametro = parejaParametros[i].split('=');
-            if (parejaParametro.length === 2) {
-                var nombre = parejaParametro[0];
-                var valor = decodeURIComponent(parejaParametro[1].replace(/\+/g, " "));
-                parametros[nombre] = valor;
-            }
-        }
-    }
-    return parametros;
-}
-;
-
-app.controller("entityAddCtrl", function($scope, $http, $location) {
+app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http, $routeParams, $location) {
     $scope.entidadBancaria = null;
-    $scope.title = "Add";
-
-    $scope.insertEntidadBancaria = function() {
-
-        $http.post("/proyecto2_bank_server/api/EntidadBancaria/", $scope.entidadBancaria).success(function(result) {
+    $scope.title = "Edit ";
+    
+    $scope.readEntidadBancaria = function() {
+        $http.get("http://localhost:8084/Banco/api/EntidadBancaria/"+ $routeParams.id).success(function(result) {
             $scope.entidadBancaria = result;
         });
-        $location.path("/Entity");
     };
-
-    $scope.buttonOK = function() {
-        $scope.insertEntidadBancaria();
+   
+    $scope.updateEntidadBancaria = function() {
+        $http.put("http://localhost:8084/Banco/api/EntidadBancaria/"
+                + $routeParams.id,$scope.entidadBancaria).success(function(result) {
+            $scope.entidadBancaria = result;
+        });
+        $location.path("/EntidadesBancarias");
     };
-
+    $scope.readEntidadBancaria();
+    
+    $scope.inicio2 = function() {
+        $scope.updateEntidadBancaria();
+    };
 });

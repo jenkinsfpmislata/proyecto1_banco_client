@@ -27,6 +27,11 @@ app.config(function($routeProvider) {
                 controller: "EntidadesBancariasInsertCtrl"
             })
             
+            .when("/EntidadesBancariasUpdate/:id", {
+                templateUrl:"EntidadesBancarias/FormUpdateEntity.html",
+                controller: "EntidadesBancariasUpdateCtrl"
+            })
+            
             .when("/SucursalesBancarias/", {
                 templateUrl: "SucursalesBancarias/search.html",
                 controller: "SucursalesBancariasReadAllCtrl"
