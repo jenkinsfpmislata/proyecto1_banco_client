@@ -47,6 +47,11 @@ app.config(function($routeProvider) {
                 controller: "SucursalesBancariasDeleteCtrl"
             })
             
+            .when("/SucursalesBancariasUpdate/:id", {
+                templateUrl:"SucursalesBancarias/FormUpdateBranch.html",
+                controller: "SucursalesBancariasUpdateCtrl"
+            })
+            
         .otherwise({
         redirectTo: "/"
     });
