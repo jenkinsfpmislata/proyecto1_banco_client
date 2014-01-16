@@ -35,14 +35,22 @@ app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http, $routePar
 });
 
 
-app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $routeParams) {
-    $scope.entidadesBancarias = null;
-    var idEntidad = $routeParams.idEntidad;
-    $http.post("http://localhost:8084/Banco/api/EntidadBancaria/").success(function() {
-        $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
-            $scope.entidadesBancarias = result;
+app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $location) {
+    $scope.entidadBancaria = null;
+    $scope.title = "Add";
+ 
+ $scope.insertEntidadBancaria = function() {
+
+        $http.post("http://localhost:8084/Banco/api/EntidadBancaria/",$scope.entidadBancaria).success(function(result) {
+            $scope.entidadBancaria = result;
         });
-    });
+        $location.path("/EntidadesBancarias");
+    };
+    
+        $scope.inicio = function() {
+        $scope.insertEntidadBancaria();
+    };
+
 });
 
 app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http) {
@@ -78,3 +86,21 @@ function getQueryStringParameters() {
     return parametros;
 }
 ;
+
+app.controller("entityAddCtrl", function($scope, $http, $location) {
+    $scope.entidadBancaria = null;
+    $scope.title = "Add";
+
+    $scope.insertEntidadBancaria = function() {
+
+        $http.post("/proyecto2_bank_server/api/EntidadBancaria/", $scope.entidadBancaria).success(function(result) {
+            $scope.entidadBancaria = result;
+        });
+        $location.path("/Entity");
+    };
+
+    $scope.buttonOK = function() {
+        $scope.insertEntidadBancaria();
+    };
+
+});

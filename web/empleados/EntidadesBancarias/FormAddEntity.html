@@ -26,16 +26,16 @@
 	<td>
 	
 		<!-- start id-form -->
-                <form action="#/EntidadesBancariasInsert/">
+                <form role="form">
 		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
 		<tr>
 			<th valign="top">Entity name:</th>
-			<td><input type="text" name="idEntidad" class="inp-form" /></td>
+			<td><input type="text" ng-model="entidadBancaria.nombre" class="inp-form" /></td>
 			<td></td>
 		</tr>
 		<tr>
 			<th valign="top">Entity code:</th>
-			<td><input type="text" name="codigoEntidad" class="inp-form" /></td>
+			<td><input type="text" ng-model="entidadBancaria.codigoEntidadBancaria" class="inp-form" /></td>
 			<td>
                             <div class="error-left" style="display: none"></div>
 			<div class="error-inner" style="display: none">This field is required.</div>
@@ -44,7 +44,7 @@
 		<tr>
 		<th valign="top">Type:</th>
 		<td>	
-		<select name="tipo" class="styledselect_form_1">
+                    <select name="tipo" class="styledselect_form_1" ng-model="entidadBancaria.tipoEntidadBancaria">
 			<option value="">Banco</option>
 			<option value="">Cooperativa Credito</option>
 			<option value="">Establecimiento Financiero</option>
@@ -55,12 +55,12 @@
 		</tr>
 		<tr>
 			<th valign="top">CIF:</th>
-			<td><input name="cif" type="text" class="inp-form" /></td>
+			<td><input name="cif" type="text" ng-model="entidadBancaria.cif" class="inp-form" /></td>
 		</tr>
 	<tr>
 		<th>&nbsp;</th>
 		<td valign="top">
-			<input type="submit" value="" class="form-submit" />
+                    <button class="form-submit" ng-click="inicio()">Accept</button>
 			<input type="reset" value="" class="form-reset"  />
 		</td>
 		<td></td>
