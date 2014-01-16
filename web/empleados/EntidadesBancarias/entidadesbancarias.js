@@ -8,6 +8,7 @@ app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
         $scope.entidadesBancarias = result;
     });
+
 });
 
 app.controller("EntidadesBancariasReadCtrl", function($scope, $http) {
