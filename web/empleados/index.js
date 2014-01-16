@@ -7,6 +7,11 @@ app.config(function($routeProvider) {
                 controller: "MainCtrl"
             })
             
+            .when("/EntidadBancaria/:id", {
+                templateUrl: "EntidadesBancarias/search.html",
+                controller: "EntidadesBancariasReadCtrl"
+            })
+            
             .when("/EntidadesBancarias/", {
                 templateUrl: "EntidadesBancarias/search.html",
                 controller: "EntidadesBancariasReadAllCtrl"
@@ -16,7 +21,7 @@ app.config(function($routeProvider) {
                 templateUrl:"EntidadesBancarias/search.html",
                 controller: "EntidadesBancariasDeleteCtrl"
             })
-            
+
             .when("/EntidadesBancariasInsert/", {
                 templateUrl:"EntidadesBancarias/FormAddEntity.html",
                 controller: "EntidadesBancariasInsertCtrl"
