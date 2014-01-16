@@ -27,7 +27,12 @@ app.config(function($routeProvider) {
                 controller: "SucursalesBancariasReadAllCtrl"
             })
             
-            .when("/EntidadesBancariasDelete/:id", {
+             .when("/SucursalesBancariasInsert/", {
+                templateUrl:"SucursalesBancarias/FormAddBranch.html",
+                controller: "SucursalesBancariasInsertCtrl"
+            })
+            
+            .when("/SucursalesBancariasDelete/:id", {
                 templateUrl:"SucursalesBancarias/search.html",
                 controller: "SucursalesBancariasDeleteCtrl"
             })
