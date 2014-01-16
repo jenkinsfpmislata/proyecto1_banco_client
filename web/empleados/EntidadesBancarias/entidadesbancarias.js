@@ -5,7 +5,7 @@ var app = angular.module("app", []);
 app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
 
-    $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/EntidadesBancarias.json.jsp").success(function(result) {
+    $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
         $scope.entidadesBancarias = result;
     });
 });
@@ -14,15 +14,16 @@ app.controller("EntidadesBancariasReadCtrl", function($scope, $http) {
     $scope.entidadBancaria = null;
     var parametros = getQueryStringParameters();
 
-    $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/EntidadBancaria.json.jsp?id=" + parametros.id).success(function(r) {
+    $http.get("http://localhost:8084/Banco/api/EntidadBancaria/" + parametros.id).success(function(r) {
         $scope.entidadBancaria = r;
     });
 });
 
 app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http) {
+    var parametros = getQueryStringParameters();
     $scope.entidadesBancarias = null;
-    $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/DeleteEntidad.json.jsp?id=" + idEntidadBancaria).success(function() {
-        $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/EntidadesBancarias.json.jsp").success(function(result) {
+    $http.delete("http://localhost:8084/Banco/api/EntidadBancaria/" + parametros.id).success(function() {
+        $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
             $scope.entidadesBancarias = result;
         });
     });
@@ -31,8 +32,8 @@ app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http) {
 
 app.controller('EntidadesBancariasInsertCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
-    $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/InsertEntidad.json.jsp").success(function() {
-        $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/EntidadesBancarias.json.jsp").success(function(result) {
+    $http.post("http://localhost:8084/Banco/api/EntidadBancaria/").success(function() {
+        $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
             $scope.entidadesBancarias = result;
         });
     });
@@ -40,8 +41,9 @@ app.controller('EntidadesBancariasInsertCtrl', function($scope, $http) {
 
 app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
-    $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/UpdateEntidad.json.jsp").success(function() {
-        $http.get("http://localhost:8084/Banco/jsp/entidadbancariajson/EntidadesBancarias.json.jsp").success(function(result) {
+    var parametros = getQueryStringParameters();
+    $http.put("http://localhost:8084/Banco/api/EntidadBancaria/" + parametros.id).success(function() {
+        $http.get("http://localhost:8084/Banco/api/EntidadesBancarias/").success(function(result) {
             $scope.entidadesBancarias = result;
         });
     });
