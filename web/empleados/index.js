@@ -11,6 +11,10 @@ app.config(function($routeProvider) {
                 templateUrl: "EntidadesBancarias/search.html",
                 controller: "EntidadesBancariasReadAllCtrl"
             })
+            .when("/SucursalesBancarias/", {
+                templateUrl: "SucursalesBancarias/search.html",
+                controller: "SucursalesBancariasReadAllCtrl"
+            })
         .otherwise({
         redirectTo: "/"
     });

@@ -1,5 +1,3 @@
-var app = angular.module("app", []);
-
 ///////////////// Controladores //////////////////////////////
 
 app.controller('SucursalesBancariasReadAllCtrl', function($scope, $http) {
