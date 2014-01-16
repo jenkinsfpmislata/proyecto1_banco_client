@@ -28,13 +28,21 @@ app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http, $routePa
 });
 
 
-app.controller('SucursalesBancariasInsertCtrl', function($scope, $http) {
-    $scope.sucursalesBancarias = null;
-    $http.post("http://localhost:8084/Banco/api/SucursalBancaria/").success(function() {
-        $http.get("http://localhost:8084/Banco/api/SucursalesBancarias/").success(function(result) {
-            $scope.sucursalesBancarias = result;
+app.controller('SucursalesBancariasInsertCtrl', function($scope, $http, $location) {
+    $scope.sucursalBancaria = null;
+    $scope.title = "Add";
+ 
+ $scope.insertSucursalBancaria = function() {
+
+        $http.post("http://localhost:8084/Banco/api/SucursalBancaria/",$scope.sucursalBancaria).success(function(result) {
+            $scope.sucursalBancaria = result;
         });
-    });
+        $location.path("/SucursalesBancarias");
+    };
+    
+        $scope.inicio = function() {
+        $scope.insertSucursalBancaria();
+    };
 });
 
 app.controller('SucursalesBancariasUpdateCtrl', function($scope, $http) {

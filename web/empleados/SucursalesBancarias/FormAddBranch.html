@@ -26,11 +26,11 @@
 	<td>
 	
 		<!-- start id-form -->
-                <form action="#">
+                <form role="form">
 		<table border="0" cellpadding="0" cellspacing="0"  id="id-form">
 		<tr>
 			<th valign="top">EntityID:</th>
-			<td><input type="text" class="inp-form" /></td>
+                        <td><input type="text" class="inp-form" ng-model="sucursalBancaria.entidadBancaria.idEntidad" /></td>
 			<td>
                             <div class="error-left" style="display: none"></div>
 			<div class="error-inner" style="display: none">This field is required.</div>
@@ -38,7 +38,7 @@
 		</tr>
 		<tr>
 			<th valign="top">Branch code :</th>
-			<td><input type="text" class="inp-form" /></td>
+                        <td><input type="text" class="inp-form" ng-model="sucursalBancaria.codigoSucursal" /></td>
 			<td>
                             <div class="error-left" style="display: none"></div>
 			<div class="error-inner" style="display: none">This field is required.</div>
@@ -46,12 +46,12 @@
 		</tr>
 		<tr>
 			<th valign="top">Branch Name</th>
-			<td><input type="text" class="inp-form" /></td>
+                        <td><input type="text" class="inp-form" ng-model="sucursalBancaria.nombreSucursal" /></td>
 		</tr>
 	<tr>
 		<th>&nbsp;</th>
 		<td valign="top">
-			<input type="submit" value="" class="form-submit" />
+                    <button ng-click="inicio()" value="" class="form-submit">Accept</button>
 			<input type="reset" value="" class="form-reset"  />
 		</td>
 		<td></td>
