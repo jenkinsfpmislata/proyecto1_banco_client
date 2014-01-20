@@ -30,7 +30,6 @@ app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http, $routePa
 
 app.controller('SucursalesBancariasInsertCtrl', function($scope, $http, $location) {
     $scope.sucursalBancaria = null;
-    $scope.title = "Add";
 
     $scope.insertSucursalBancaria = function() {
 
@@ -39,21 +38,10 @@ app.controller('SucursalesBancariasInsertCtrl', function($scope, $http, $locatio
         });
         $location.path("/SucursalesBancarias");
     };
-
-    $scope.inicio = function() {
-        $scope.insertSucursalBancaria();
-    };
 });
 
 app.controller('SucursalesBancariasUpdateCtrl', function($scope, $http, $routeParams, $location) {
     $scope.sucursalBancaria = null;
-    $scope.title = "Edit ";
-
-    $scope.readSucursalBancaria = function() {
-        $http.get("http://localhost:8084/Banco/api/SucursalBancaria/" + $routeParams.id).success(function(result) {
-            $scope.sucursalBancaria = result;
-        });
-    };
 
     $scope.updateSucursalBancaria = function() {
         $http.put("http://localhost:8084/Banco/api/SucursalBancaria/"
@@ -62,10 +50,5 @@ app.controller('SucursalesBancariasUpdateCtrl', function($scope, $http, $routePa
         });
         $location.path("/SucursalesBancarias");
     };
-   
-    $scope.readSucursalBancaria();
 
-    $scope.inicio2 = function() {
-        $scope.updateSucursalBancaria();
-    };
 });
