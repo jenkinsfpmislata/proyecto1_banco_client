@@ -4,7 +4,7 @@
 app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
              //http://localhost:8084
-    $http.get("proyecto1_banco_servidor/api/EntidadesBancarias").success(function(result) {
+    $http.get("/proyecto1_banco_servidor/api/EntidadesBancarias").success(function(result) {
         $scope.entidadesBancarias = result;
     });
 });
