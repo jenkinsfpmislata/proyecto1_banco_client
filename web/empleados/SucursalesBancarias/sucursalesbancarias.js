@@ -2,29 +2,38 @@
 
 app.controller('SucursalesBancariasReadAllCtrl', function($scope, $http) {
     $scope.sucursalesBancarias = null;
-
-    $http.get("http://localhost:8084/Banco/api/SucursalesBancarias/").success(function(result) {
+    $http.get("/Banco/api/SucursalesBancarias/").success(function(result) {
         $scope.sucursalesBancarias = result;
     });
+//    $http.get("/proyecto1_banco_servidor/api/SucursalesBancarias/").success(function(result) {
+//        $scope.sucursalesBancarias = result;
+//    });
 });
 
 app.controller("SucursalesBancariasReadCtrl", function($scope, $http) {
     $scope.sucursalesBancarias = null;
     var parametros = getQueryStringParameters();
-
-    $http.get("http://localhost:8084/Banco/api/SucursalBancaria/" + parametros.id).success(function(r) {
+    $http.get("/Banco/api/SucursalBancaria/" + parametros.id).success(function(r) {
         $scope.sucursalesBancarias = r;
     });
+//    $http.get("/proyecto1_banco_servidor/api/SucursalBancaria/" + parametros.id).success(function(r) {
+//        $scope.sucursalesBancarias = r;
+//    });
 });
 
 app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http, $routeParams) {
     $scope.sucursalesBancarias = null;
     var id = $routeParams.id;
-    $http.delete("http://localhost:8084/Banco/api/SucursalBancaria/" + id).success(function() {
-        $http.get("http://localhost:8084/Banco/api/SucursalesBancarias/").success(function(result) {
+    $http.delete("/Banco/api/SucursalBancaria/" + id).success(function() {
+        $http.get("/Banco/api/SucursalesBancarias/").success(function(result) {
             $scope.sucursalesBancarias = result;
         });
     });
+//    $http.delete("/proyecto1_banco_servidor/api/SucursalBancaria/" + id).success(function() {
+//        $http.get("/proyecto1_banco_servidor/api/SucursalesBancarias/").success(function(result) {
+//            $scope.sucursalesBancarias = result;
+//        });
+//    });
 });
 
 
@@ -32,10 +41,12 @@ app.controller('SucursalesBancariasInsertCtrl', function($scope, $http, $locatio
     $scope.sucursalBancaria = null;
 
     $scope.insertSucursalBancaria = function() {
-
-        $http.post("http://localhost:8084/Banco/api/SucursalBancaria/", $scope.sucursalBancaria).success(function(result) {
+        $http.post("/Banco/api/SucursalBancaria/", $scope.sucursalBancaria).success(function(result) {
             $scope.sucursalBancaria = result;
         });
+//        $http.post("/proyecto1_banco_servidor/api/SucursalBancaria/", $scope.sucursalBancaria).success(function(result) {
+//            $scope.sucursalBancaria = result;
+//        });
         $location.path("/SucursalesBancarias");
     };
 });
@@ -44,10 +55,14 @@ app.controller('SucursalesBancariasUpdateCtrl', function($scope, $http, $routePa
     $scope.sucursalBancaria = null;
 
     $scope.updateSucursalBancaria = function() {
-        $http.put("http://localhost:8084/Banco/api/SucursalBancaria/"
+        $http.put("/Banco/api/SucursalBancaria/"
                 + $routeParams.id, $scope.sucursalBancaria).success(function(result) {
             $scope.sucursalBancaria = result;
         });
+//        $http.put("/proyecto1_banco_servidor/api/SucursalBancaria/"
+//                + $routeParams.id, $scope.sucursalBancaria).success(function(result) {
+//            $scope.sucursalBancaria = result;
+//        });
         $location.path("/SucursalesBancarias");
     };
 
