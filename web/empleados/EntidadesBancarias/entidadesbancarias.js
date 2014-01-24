@@ -1,7 +1,7 @@
 
 ///////////////// Controladores //////////////////////////////
 
-app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http, $routeParams) {
+app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
     $scope.nombre = null;
              //http://localhost:8084
