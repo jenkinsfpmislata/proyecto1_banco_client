@@ -10,7 +10,6 @@ app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http, $routePa
     });
     
     $scope.read = function(){
-       
     $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/"+$scope.nombre).success(function(r) {
         $scope.entidadesBancarias = r;
         }); 
