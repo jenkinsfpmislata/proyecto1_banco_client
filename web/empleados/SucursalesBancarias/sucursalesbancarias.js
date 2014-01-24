@@ -50,5 +50,9 @@ app.controller('SucursalesBancariasUpdateCtrl', function($scope, $http, $routePa
         });
         $location.path("/SucursalesBancarias");
     };
+    
+        $http.get("/proyecto1_banco_servidor/api/SucursalBancaria/"+$routeParams.id).success(function(r) {
+        $scope.sucursalesBancarias = r;
+    });
 
 });
