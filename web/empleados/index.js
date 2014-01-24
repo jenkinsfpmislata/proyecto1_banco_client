@@ -6,11 +6,6 @@ app.config(function($routeProvider) {
                 templateUrl: "main.html",
                 controller: "MainCtrl"
             })
-            //Rutas Entidad Bancaria/////////////////////////////////////
-            .when("/EntidadBancaria/", {
-                templateUrl: "EntidadesBancarias/search.html",
-                controller: "EntidadesBancariasReadCtrl"
-            })
             
             .when("/EntidadesBancarias/", {
                 templateUrl: "EntidadesBancarias/search.html",

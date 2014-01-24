@@ -1568,3 +1568,12 @@ a:hover.back-login	{
 	background: url(../images/login/submit_login.gif) no-repeat 0 -29px;
 	}
  
+        #busqueda{
+            float: right;
+            width: 300px;
+            margin-right: -25px;
+        }
+        #busqueda input{
+            margin-right:5px;
+        }
+h1{display: inline}
