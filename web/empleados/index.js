@@ -6,7 +6,7 @@ app.config(function($routeProvider) {
                 templateUrl: "main.html",
                 controller: "MainCtrl"
             })
-            
+            //Rutas Entidad Bancaria/////////////////////////////////////
             .when("/EntidadBancaria/", {
                 templateUrl: "EntidadesBancarias/search.html",
                 controller: "EntidadesBancariasReadCtrl"
@@ -32,6 +32,12 @@ app.config(function($routeProvider) {
                 controller: "EntidadesBancariasUpdateCtrl"
             })
             
+            //Rutas Sucursal Bancaria/////////////////////////////////////
+            .when("/SucursalBancaria/", {
+                templateUrl: "SucursalesBancarias/search.html",
+                controller: "SucursalesBancariasReadCtrl"
+            })
+            
             .when("/SucursalesBancarias/", {
                 templateUrl: "SucursalesBancarias/search.html",
                 controller: "SucursalesBancariasReadAllCtrl"
@@ -50,6 +56,60 @@ app.config(function($routeProvider) {
             .when("/SucursalesBancariasUpdate/:id", {
                 templateUrl:"SucursalesBancarias/FormUpdateBranch.html",
                 controller: "SucursalesBancariasUpdateCtrl"
+            })
+            
+            //Rutas Cuenta Bancaria/////////////////////////////////////
+            
+            .when("/CuentaBancaria/", {
+                templateUrl: "CuentasBancarias/search.html",
+                controller: "CuentasBancariasReadCtrl"
+            })
+            
+            .when("/CuentasBancarias/", {
+                templateUrl: "CuentasBancarias/search.html",
+                controller: "CuentasBancariasReadAllCtrl"
+            })
+            
+             .when("/CuentasBancariasInsert/", {
+                templateUrl:"CuentasBancarias/FormAddAccount.html",
+                controller: "CuentasBancariasInsertCtrl"
+            })
+            
+            .when("/CuentasBancariasDelete/:id", {
+                templateUrl:"CuentasBancarias/search.html",
+                controller: "CuentasBancariasDeleteCtrl"
+            })
+            
+            .when("/CuentasBancariasUpdate/:id", {
+                templateUrl:"CuentasBancarias/FormUpdateAccount.html",
+                controller: "CuentasBancariasUpdateCtrl"
+            })
+            
+            //Rutas Movimiento Bancaria/////////////////////////////////////
+            
+            .when("/MovimientoBancario/", {
+                templateUrl: "SucursalesBancarias/search.html",
+                controller: "SucursalesBancariasReadCtrl"
+            })
+            
+            .when("/MovimientosBancarios/", {
+                templateUrl: "MovimientosBancarios/search.html",
+                controller: "MovimientosBancariosReadAllCtrl"
+            })
+            
+             .when("/MovimientosBancariosInsert/", {
+                templateUrl:"MovimientosBancarios/FormAddMovement.html",
+                controller: "MovimientosBancariosInsertCtrl"
+            })
+            
+            .when("/MovimientosBancariosDelete/:id", {
+                templateUrl:"MovimientosBancarios/search.html",
+                controller: "MovimientosBancariosDeleteCtrl"
+            })
+            
+            .when("/MovimientosBancariosUpdate/:id", {
+                templateUrl:"MovimientosBancarios/FormUpdateMovement.html",
+                controller: "MovimientosBancariosUpdateCtrl"
             })
             
         .otherwise({
