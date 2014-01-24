@@ -1,12 +1,18 @@
 
 ///////////////// Controladores //////////////////////////////
 
-app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
+app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http, $routeParams) {
     $scope.entidadesBancarias = null;
              //http://localhost:8084
     $http.get("/proyecto1_banco_servidor/api/EntidadesBancarias").success(function(result) {
         $scope.entidadesBancarias = result;
     });
+    
+    $scope.read = function(){
+      $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/"+$routeParams.id).success(function(r) {
+        $scope.entidadBancaria = r;
+        });  
+    };
 });
 
              
