@@ -5,8 +5,9 @@
         <!--  start page-heading -->
         <div id="page-heading">
             <h1>Entity Branch</h1>
-            <form id="busqueda">
-                <input type="text" class="form-control2" ><a class="btn btn-default" href="">Search</a>
+            <form id="busqueda" role="form">
+                <input type="text" ng-model="nombre" class="form-control2"/>
+                <a class="btn btn-default" ng-click="read()">Search</a>
             </form>
         </div>
         <!-- end page-heading -->
