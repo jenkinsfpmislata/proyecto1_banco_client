@@ -4,7 +4,7 @@
     <div id="content">
 
 
-        <div id="page-heading"><h1>Add Entity</h1></div>
+        <div id="page-heading"><h1>Add Branch</h1></div>
 
 
         <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
@@ -29,38 +29,37 @@
                                     <form role="form">
                                         <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
                                             <tr>
-                                                <th valign="top">Entity name:</th>
-                                                <td><input type="text" ng-model="entidadBancaria.nombre" class="inp-form" /></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th valign="top">Entity code:</th>
-                                                <td><input type="text" ng-model="entidadBancaria.codigoEntidadBancaria" class="inp-form" /></td>
+                                                <th valign="top">BranchID:</th>
+                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.idSucursalBancaria" readonly/></td>
                                                 <td>
                                                     <div class="error-left" style="display: none"></div>
                                                     <div class="error-inner" style="display: none">This field is required.</div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">Type:</th>
-                                                <td>	
-                                                    <select class="styledselect_form_1" ng-model="entidadBancaria.tipo">
-                                                        <option value="BANCO">Banco</option>
-                                                        <option value="COOPERATIVACREDITO">Cooperativa Credito</option>
-                                                        <option value="ESTFINANCIERO">Establecimiento Financiero</option>
-                                                        <option value="CAJAAHORRO">Caja Ahorro</option>
-                                                    </select>
+                                                <th valign="top">EntityID:</th>
+                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.entidadBancaria.idEntidad" /></td>
+                                                <td>
+                                                    <div class="error-left" style="display: none"></div>
+                                                    <div class="error-inner" style="display: none">This field is required.</div>
                                                 </td>
-                                                <td></td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">CIF:</th>
-                                                <td><input type="text" ng-model="entidadBancaria.cif" class="inp-form" /></td>
+                                                <th valign="top">Branch code :</th>
+                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.codigoSucursal" /></td>
+                                                <td>
+                                                    <div class="error-left" style="display: none"></div>
+                                                    <div class="error-inner" style="display: none">This field is required.</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th valign="top">Branch Name</th>
+                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.nombreSucursal" /></td>
                                             </tr>
                                             <tr>
                                                 <th>&nbsp;</th>
                                                 <td valign="top">
-                                                    <button class="form-submit" ng-click="insertEntidadBancaria()">Accept</button>
+                                                    <button ng-click="updateCuentaBancaria()" value="" class="form-submit">Accept</button>
                                                     <input type="reset" value="" class="form-reset"  />
                                                 </td>
                                                 <td></td>

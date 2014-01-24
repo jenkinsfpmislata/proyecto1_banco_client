@@ -28,35 +28,47 @@
                                     <!-- start id-form -->
                                     <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
                                         <tr>
-                                            <th valign="top">Account number:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">id Associate Branch:</th>
+                                            <td><input type="text" class="inp-form" ng-model="cuentaBancaria.sucursalBancaria.idSucursalBancaria"/></td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <th valign="top">DC:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">Account Number:</th>
+                                            <td><input type="text" class="inp-form" ng-model="cuentaBancaria.numeroCuenta"/></td>
                                             <td>
                                                 <div class="error-left" style="display: none"></div>
                                                 <div class="error-inner" style="display: none">This field is required.</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th valign="top">CIF:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">Control Digit:</th>
+                                            <td><input type="text" class="inp-form" ng-model="cuentaBancaria.dc"/></td>
                                             <td>
                                                 <div class="error-left" style="display: none"></div>
                                                 <div class="error-inner" style="display: none">This field is required.</div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th valign="top">Branch Bank:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">Balance:</th>
+                                            <td><input type="text" class="inp-form" ng-model="cuentaBancaria.saldo"/></td>
+                                            <td>
+                                                <div class="error-left" style="display: none"></div>
+                                                <div class="error-inner" style="display: none">This field is required.</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th valign="top">Cif:</th>
+                                            <td><input type="text" class="inp-form" ng-model="cuentaBancaria.cif"/></td>
+                                            <td>
+                                                <div class="error-left" style="display: none"></div>
+                                                <div class="error-inner" style="display: none">This field is required.</div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>&nbsp;</th>
                                             <td valign="top">
-                                                <input type="button" value="" class="form-submit" />
-                                                <input type="reset" value="" class="form-reset"  />
+                                                <button class="form-submit" ng-click="insertCuentaBancaria()">Accept</button>
+                                                    <input type="reset" value="" class="form-reset"  />
                                             </td>
                                             <td></td>
                                         </tr>

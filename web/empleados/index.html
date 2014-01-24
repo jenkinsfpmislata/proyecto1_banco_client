@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>BitBank WorkerPlace</title>
-        
+
         <script src="../lib/angularjs/js/angular.js"></script>
         <script src="../lib/angularjs/js/angular-route.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.js"></script>
@@ -12,7 +12,9 @@
         <script src="index.js"></script>
         <script src="main.js"></script>
         <script src="EntidadesBancarias/entidadesbancarias.js"></script>
-        <script src="SucursalesBancarias/sucursalesbancarias.js"></script> 
+        <script src="SucursalesBancarias/sucursalesbancarias.js"></script>
+        <script src="CuentasBancarias/cuentasbancarias.js"></script> 
+        <!--<script src="MovimientosBancarios/movimientosbancarios.js"></script> -->
         <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
         <!--[if IE]>
         <link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
@@ -178,7 +180,7 @@
                 $(document).pngFix( );
             });
         </script>
-        
+
     </head>
     <body> 
         <!-- Start: page-top-outer -->
@@ -310,8 +312,9 @@
                                 <!--[if lte IE 6]><table><tr><td><![endif]-->
                                 <div class="select_sub">
                                     <ul class="sub">
-                                        <li><a href="#nogo">Transactions</a></li>
-                                        <li><a href="#nogo">Accounts</a></li>
+                                        <li><a href="#/MovimientosBancarios">Transactions</a></li>
+                                        <li><a href="#/CuentasBancarias">Accounts</a></li>
+                                        <li><a href="#/CuentasBancariasInsert">Add Accounts</a></li>
 
                                     </ul>
                                 </div>
