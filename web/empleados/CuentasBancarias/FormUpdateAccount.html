@@ -2,11 +2,7 @@
 <div id="content-outer">
     <!-- start content -->
     <div id="content">
-
-
         <div id="page-heading"><h1>Add Branch</h1></div>
-
-
         <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
             <tr>
                 <th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
@@ -29,38 +25,46 @@
                                     <form role="form">
                                         <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
                                             <tr>
+                                                <th valign="top">Account ID:</th>
+                                                <td><input type="text" class="inp-form" ng-model="cuentaBancaria.idCuentaBancaria" readonly/></td>
+                                                <td>
+                                                    <div class="error-left" style="display: none"></div>
+                                                    <div class="error-inner" style="display: none">This field is required.</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <th valign="top">BranchID:</th>
-                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.idSucursalBancaria" readonly/></td>
+                                                <td><input type="text" class="inp-form" ng-model="cuentaBancaria.sucursalBancaria.idSucursalBancaria" /></td>
                                                 <td>
                                                     <div class="error-left" style="display: none"></div>
                                                     <div class="error-inner" style="display: none">This field is required.</div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">EntityID:</th>
-                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.entidadBancaria.idEntidad" /></td>
+                                                <th valign="top">Account number :</th>
+                                                <td><input type="text" class="inp-form" ng-model="cuentaBancaria.numeroCuenta" /></td>
                                                 <td>
                                                     <div class="error-left" style="display: none"></div>
                                                     <div class="error-inner" style="display: none">This field is required.</div>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">Branch code :</th>
-                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.codigoSucursal" /></td>
-                                                <td>
-                                                    <div class="error-left" style="display: none"></div>
-                                                    <div class="error-inner" style="display: none">This field is required.</div>
-                                                </td>
+                                                <th valign="top">Account Control Digit</th>
+                                                <td><input type="text" class="inp-form" ng-model="cuentaBancaria.dc" /></td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">Branch Name</th>
-                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.nombreSucursal" /></td>
+                                                <th valign="top">Account Balance</th>
+                                                <td><input type="text" class="inp-form" ng-model="cuentaBancaria.saldo" /></td>
+                                            </tr>
+                                            <tr>
+                                                <th valign="top">Cif</th>
+                                                <td><input type="text" class="inp-form" ng-model="cuentaBancaria.cif" /></td>
                                             </tr>
                                             <tr>
                                                 <th>&nbsp;</th>
                                                 <td valign="top">
-                                                    <button ng-click="updateCuentaBancaria()" value="" class="form-submit">Accept</button>
-                                                    <input type="reset" value="" class="form-reset"  />
+                                                    <button ng-click="updateCuentaBancaria()" class="form-submit">Accept</button>
+                                                    <button ng-click="mostrarCuentas()" class="form-reset">Cancel</button>
                                                 </td>
                                                 <td></td>
                                             </tr>
