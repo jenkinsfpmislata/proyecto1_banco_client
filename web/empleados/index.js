@@ -83,8 +83,8 @@ app.config(function($routeProvider) {
             //Rutas Movimiento Bancaria/////////////////////////////////////
             
             .when("/MovimientoBancario/", {
-                templateUrl: "SucursalesBancarias/search.html",
-                controller: "SucursalesBancariasReadCtrl"
+                templateUrl: "MovimientosBancarios/search.html",
+                controller: "MovimientosBancariosReadCtrl"
             })
             
             .when("/MovimientosBancarios/", {
@@ -105,6 +105,11 @@ app.config(function($routeProvider) {
             .when("/MovimientosBancariosUpdate/:id", {
                 templateUrl:"MovimientosBancarios/FormUpdateMovement.html",
                 controller: "MovimientosBancariosUpdateCtrl"
+            })
+            
+            .when("/SucursalesDeEntidad/:nombre", {
+                templateUrl:"SucursalesBancarias/SucursalesPorEntidad.html",
+                controller:"SucursalesPorEntidad"
             })
             
         .otherwise({

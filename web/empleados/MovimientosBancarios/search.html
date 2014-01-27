@@ -4,7 +4,7 @@
 
         <!--  start page-heading -->
         <div id="page-heading">
-            <h1>Accounts Page</h1>
+            <h1>Transactions Page</h1>
         </div>
         <!-- end page-heading -->
 
@@ -75,25 +75,27 @@
                                 <table  border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
                                     <tr>
                                         <th class="table-header-check"><a id="toggle-all" ></a> </th>
-                                        <th class="table-header-repeat line-left minwidth-1"><a href="">AccountID</a>	</th>
-                                        <th class="table-header-repeat line-left minwidth-1"><a href="">BranchID</a></th>
-                                        <th class="table-header-repeat line-left"><a href="">Acc. number</a></th>
-                                        <th class="table-header-repeat line-left"><a href="">CD</a></th>
-                                        <th class="table-header-options line-left"><a href="">Balance</a></th>
-                                        <th class="table-header-options line-left"><a href="">Cif</a></th>
+                                        <th class="table-header-repeat line-left minwidth-1"><a href="">TransactionID</a>	</th>
+                                        <th class="table-header-repeat line-left minwidth-1"><a href="">AccountID</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">TransactionType</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">Import</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">Date</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">Total Amount</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">Concept</a></th>                       
                                         <th class="table-header-options line-left"><a href="">Options</a></th>
                                     </tr>
-                                    <tr ng-repeat="cuentaBancaria in cuentasBancarias">
+                                    <tr ng-repeat="movimientoBancario in movimientosBancarios">
                                         <td><input  type="checkbox"/></td>
-                                        <td>{{cuentaBancaria.idCuentaBancaria}}</td>
-                                        <td>{{cuentaBancaria.sucursalBancaria.idSucursalBancaria}}</td>
-                                        <td>{{cuentaBancaria.numeroCuenta}}</td>
-                                        <td>{{cuentaBancaria.dc}}</td>
-                                        <td>{{cuentaBancaria.saldo}}</td>
-                                        <td>{{cuentaBancaria.cif}}</td>
+                                        <td>{{movimientoBancario.idMovimientoBancario}}</td>
+                                        <td>{{movimientoBancario.cuentaBancaria.idCuentaBancaria}}</td>
+                                        <td>{{movimientoBancario.tipoMovimientoBancario}}</td>
+                                        <td>{{movimientoBancario.importe}}</td>
+                                        <td>{{movimientoBancario.fecha}}</td>
+                                        <td>{{movimientoBancario.saldoTotal}}</td>
+                                        <td>{{movimientoBancario.concepto}}</td>
                                         <td class="options-width">
-                                            <a href="#/CuentasBancariasUpdate/{{cuentaBancaria.idCuentaBancaria}}" title="Edit" class="icon-1 info-tooltip"></a>
-                                            <a href="#/CuentasBancariasDelete/{{cuentaBancaria.idCuentaBancaria}}" title="Delete" class="icon-2 info-tooltip"></a>
+                                            <a href="#/MovimientosBancariosUpdate/{{movimientoBancario.idMovimientoBancario}}" title="Edit" class="icon-1 info-tooltip"></a>
+                                            <a href="#/MovimientosBancariosDelete/{{movimientoBancario.idMovimientoBancario}}" title="Delete" class="icon-2 info-tooltip"></a>
                                         </td>
                                     </tr>
                                 </table>

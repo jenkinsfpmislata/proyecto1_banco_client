@@ -1,71 +1,54 @@
-var app = angular.module("app", []);
 
 ///////////////// Controladores //////////////////////////////
 
 app.controller('MovimientosBancariosReadAllCtrl', function($scope, $http) {
     $scope.movimientosBancarios = null;
-
-    $http.get("/proyecto1_banco_servidor/api/MovimientosBancarios/").success(function(result) {
+    $scope.nombre = null;
+             //http://localhost:8084
+    $http.get("/proyecto1_banco_servidor/api/MovimientosBancarios").success(function(result) {
         $scope.movimientosBancarios = result;
     });
-});
-
-app.controller("MovimientosBancariosReadCtrl", function($scope, $http) {
-    $scope.movimientosBancarios = null;
-    var parametros = getQueryStringParameters();
-
-    $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/" + parametros.id).success(function(r) {
+    
+    $scope.read = function(){
+    $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/"+$scope.nombre).success(function(r) {
         $scope.movimientosBancarios = r;
+        }); 
+    };
+});
+             
+app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http, $routeParams, $location) {
+    var id = $routeParams.id;
+                //http://localhost:8084
+    $http.delete("/proyecto1_banco_servidor/api/MovimientoBancario/" + id).success(function() {
+        $location.path("/MovimientosBancarios");
     });
 });
 
-app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http) {
-    $scope.movimientosBancarios = null;
-    var parametros = getQueryStringParameters();
-    $http.delete("/proyecto1_banco_servidor/api/api/MovimientoBancario/" + parametros.id).success(function() {
-        $http.get("/proyecto1_banco_servidor/api/MovimientosBancarios/").success(function(result) {
-            $scope.movimientosBancarios = result;
+            
+app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $location) {
+    $scope.movimientoBancario = null;
+
+    $scope.insertMovimientoBancario = function() {
+                  //http://localhost:8084
+        $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/", $scope.movimientoBancario).success(function(result) {
+            $scope.movimientoBancario = result;
         });
-    });
+        $location.path("/MovimientosBancarios");
+    };
 });
+            
+app.controller('MovimientosBancariosUpdateCtrl', function($scope, $http, $routeParams, $location) {
+    $scope.movimientoBancario = null;
 
-
-app.controller('MovimientosBancariosInsertCtrl', function($scope, $http) {
-    $scope.movimientosBancarios = null;
-    $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/").success(function() {
-        $http.get("/proyecto1_banco_servidor/api/MovimientosBancarios/").success(function(result) {
-            $scope.movimientosBancarios = result;
+    $scope.updateMovimientoBancario = function() {
+                 //http://localhost:8084
+        $http.put("/proyecto1_banco_servidor/api/EntidadBancaria/"
+                + $routeParams.id, $scope.movimientoBancario).success(function(result) {
+            $scope.movimientoBancario = result;
         });
-    });
+        $location.path("/MovimientosBancarios");
+    };
+    $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/"+$routeParams.id).success(function(r) {
+    $scope.movimientoBancario = r;
+    }); 
 });
-
-app.controller('MovimientosBancariosUpdateCtrl', function($scope, $http) {
-    $scope.movimientosBancarios = null;
-    var parametros = getQueryStringParameters();
-    $http.put("/proyecto1_banco_servidor/api/MovimientoBancario/"+parametros.id).success(function() {
-        $http.get("/proyecto1_banco_servidor/api/MovimientosBancarios/").success(function(result) {
-            $scope.movimientosBancarios = result;
-        });
-    });
-});
-
-///////////////////// Funciones ////////////////////////
-function getQueryStringParameters() {
-    var queryString = window.location.search.substr(1); //El substr(1) es para quitarel "?" del principio;
-    var parejaParametros = queryString.split('&');
-
-    var parametros = {};
-
-    if (parejaParametros !== "") {
-        for (var i = 0; i < parejaParametros.length; ++i)
-        {
-            var parejaParametro = parejaParametros[i].split('=');
-            if (parejaParametro.length === 2) {
-                var nombre = parejaParametro[0];
-                var valor = decodeURIComponent(parejaParametro[1].replace(/\+/g, " "));
-                parametros[nombre] = valor;
-            }
-        }
-    }
-    return parametros;
-};
