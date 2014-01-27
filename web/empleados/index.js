@@ -47,6 +47,11 @@ app.config(function($routeProvider) {
                 controller: "SucursalesBancariasUpdateCtrl"
             })
             
+            .when("/SucursalesDeEntidad/:nombre", {
+                templateUrl:"SucursalesBancarias/SucursalesPorEntidad.html",
+                controller:"SucursalesPorEntidad"
+            })
+            
         .otherwise({
         redirectTo: "/"
     });

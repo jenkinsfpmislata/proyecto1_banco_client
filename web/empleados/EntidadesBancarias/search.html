@@ -80,11 +80,11 @@
 					<th class="table-header-repeat line-left"><a href="">Type</a></th>
 					<th class="table-header-options line-left"><a href="">Options</a></th>
 				</tr>
-				<tr ng-repeat="entidadBancaria in entidadesBancarias">
+                                <tr ng-repeat="entidadBancaria in entidadesBancarias">
 					<td><input  type="checkbox"/></td>
 					<td>{{entidadBancaria.idEntidad}}</td>
 					<td>{{entidadBancaria.codigoEntidadBancaria}}</td>
-					<td>{{entidadBancaria.nombre}}</td>
+                                        <td><a href="#/SucursalesDeEntidad/{{entidadBancaria.nombre}}">{{entidadBancaria.nombre}}</a></td>
 					<td>{{entidadBancaria.cif}}</td>
 					<td>{{entidadBancaria.tipo}}</td>
 					<td class="options-width">
