@@ -7,13 +7,12 @@
 
         <script src="../lib/angularjs/js/angular.js"></script>
         <script src="../lib/angularjs/js/angular-route.js"></script>
-        <script src="../lib/bootstrap/js/bootstrap.js"></script>
-        <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css" />
         <script src="index.js"></script>
         <script src="main.js"></script>
         <script src="EntidadesBancarias/entidadesbancarias.js"></script>
         <script src="SucursalesBancarias/sucursalesbancarias.js"></script>
-        <script src="CuentasBancarias/cuentasbancarias.js"></script> 
+        <script src="CuentasBancarias/cuentasbancarias.js"></script>
+        <script src="MovimientosBancarios/movimientosbancarios.js"></script>
         <!--<script src="MovimientosBancarios/movimientosbancarios.js"></script> -->
         <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" title="default" />
         <!--[if IE]>
@@ -22,6 +21,9 @@
 
         <!--  jquery core -->
         <script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+        <script src="../lib/bootstrap/js/bootstrap.js"></script>
+        <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css" />
+
         <!--  checkbox styling script -->
         <script src="js/jquery/ui.core.js" type="text/javascript"></script>
         <script src="js/jquery/ui.checkbox.js" type="text/javascript"></script>
@@ -173,10 +175,10 @@
                     });
         </script>
         <script>
-          function closeGreen(){ 
-           var green = document.getElementById("message-green");
-           green.setAttribute("style","display: none");
-          }
+            function closeGreen() {
+                var green = document.getElementById("message-green");
+                green.setAttribute("style", "display: none");
+            }
         </script>
 
         <!-- MUST BE THE LAST SCRIPT IN <HEAD></HEAD></HEAD> png fix -->
@@ -294,6 +296,7 @@
                                 <div class="select_sub">
                                     <ul class="sub">
                                         <li><a href="#/MovimientosBancarios">Transactions</a></li>
+                                        <li><a href="#/MovimientosBancariosInsert">Add Transaction</a></li>
                                         <li><a href="#/CuentasBancarias">Accounts</a></li>
                                         <li><a href="#/CuentasBancariasInsert">Add Accounts</a></li>
 

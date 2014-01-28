@@ -93,7 +93,7 @@ app.config(function($routeProvider) {
             })
             
              .when("/MovimientosBancariosInsert/", {
-                templateUrl:"MovimientosBancarios/FormAddMovement.html",
+                templateUrl:"MovimientosBancarios/FormAddTransaction.html",
                 controller: "MovimientosBancariosInsertCtrl"
             })
             
@@ -103,7 +103,7 @@ app.config(function($routeProvider) {
             })
             
             .when("/MovimientosBancariosUpdate/:id", {
-                templateUrl:"MovimientosBancarios/FormUpdateMovement.html",
+                templateUrl:"MovimientosBancarios/FormUpdateTransactions.html",
                 controller: "MovimientosBancariosUpdateCtrl"
             })
             

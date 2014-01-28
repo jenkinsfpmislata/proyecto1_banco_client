@@ -28,13 +28,13 @@
                                     <!-- start id-form -->
                                     <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
                                         <tr>
-                                            <th valign="top">Amount:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">Account ID</th>
+                                            <td><input type="text" class="inp-form" ng-model="movimientoBancario.cuentaBancaria.idCuentaBancaria" /></td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <th valign="top">Date:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">Import</th>
+                                            <td><input type="text" class="inp-form" ng-model="movimientoBancario.importe" /></td>
                                             <td>
                                                 <div class="error-left" style="display: none"></div>
                                                 <div class="error-inner" style="display: none">This field is required.</div>
@@ -43,21 +43,21 @@
                                         <tr>
                                             <th valign="top">Type:</th>
                                             <td>	
-                                                <select  class="styledselect_form_1">
-                                                    <option value="">Debe</option>
-                                                    <option value="">Haber</option>
+                                                <select  class="styledselect_form_1" ng-model="movimientoBancario.tipoMovimientoBancario">
+                                                    <option value="Debe">Debe</option>
+                                                    <option value="Haber">Haber</option>
                                                 </select>
                                             </td>
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <th valign="top">Concept:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">Date:</th>
+                                            <td><input type="text" class="inp-form" ng-model="movimientoBancario.fecha"/></td>
                                         </tr>
 
                                         <tr>
-                                            <th valign="top">Account:</th>
-                                            <td><input type="text" class="inp-form" /></td>
+                                            <th valign="top">Concept:</th>
+                                            <td><input type="text" class="inp-form" ng-model="movimientoBancario.concepto"/></td>
                                             <td>
                                                 <div class="error-left" style="display: none"></div>
                                                 <div class="error-inner" style="display: none">This field is required.</div>
@@ -66,8 +66,8 @@
                                         <tr>
                                             <th>&nbsp;</th>
                                             <td valign="top">
-                                                <input type="button" value="" class="form-submit" />
-                                                <input type="reset" value="" class="form-reset"  />
+                                                <a type="button" class="form-submit" ng-click="insertMovimientoBancario()">Accept</a>
+                                                <input type="reset" value="Reset" class="form-reset"  />
                                             </td>
                                             <td></td>
                                         </tr>

@@ -12,7 +12,8 @@ app.controller('MovimientosBancariosReadAllCtrl', function($scope, $http) {
     $scope.read = function(){
     $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/"+$scope.nombre).success(function(r) {
         $scope.movimientosBancarios = r;
-        }); 
+        });
+        $location.path("/MovimientosBancarios");
     };
 });
              
@@ -27,7 +28,6 @@ app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http, $routeP
             
 app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $location) {
     $scope.movimientoBancario = null;
-
     $scope.insertMovimientoBancario = function() {
                   //http://localhost:8084
         $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/", $scope.movimientoBancario).success(function(result) {
@@ -39,16 +39,17 @@ app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $locati
             
 app.controller('MovimientosBancariosUpdateCtrl', function($scope, $http, $routeParams, $location) {
     $scope.movimientoBancario = null;
-
+    
+    $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/"+$routeParams.id).success(function(r) {
+    $scope.movimientoBancario = r;
+    
     $scope.updateMovimientoBancario = function() {
                  //http://localhost:8084
-        $http.put("/proyecto1_banco_servidor/api/EntidadBancaria/"
+        $http.put("/proyecto1_banco_servidor/api/MovimientoBancario/"
                 + $routeParams.id, $scope.movimientoBancario).success(function(result) {
             $scope.movimientoBancario = result;
         });
         $location.path("/MovimientosBancarios");
     };
-    $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/"+$routeParams.id).success(function(r) {
-    $scope.movimientoBancario = r;
     }); 
 });
