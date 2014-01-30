@@ -89,7 +89,7 @@
                                         <td>{{movimientoBancario.cuentaBancaria.idCuentaBancaria}}</td>
                                         <td>{{movimientoBancario.tipoMovimientoBancario}}</td>
                                         <td>{{movimientoBancario.importe}}</td>
-                                        <td>{{movimientoBancario.fecha}}</td>
+                                        <td>{{movimientoBancario.fecha| date:'medium'}}</td>
                                         <td>{{movimientoBancario.concepto}}</td>
                                         <td class="options-width">
                                             <a href="#/MovimientosBancariosUpdate/{{movimientoBancario.idMovimientoBancario}}" title="Edit" class="icon-1 info-tooltip"></a>
