@@ -107,7 +107,7 @@ app.config(function($routeProvider) {
                 controller: "MovimientosBancariosUpdateCtrl"
             })
             
-            .when("/SucursalesDeEntidad/:idEntidad", {
+            .when("/EntidadBancaria/:idEntidad/SucursalesBancarias", {
                 templateUrl:"SucursalesBancarias/SucursalesPorEntidad.html",
                 controller:"SucursalesPorEntidad"
             })

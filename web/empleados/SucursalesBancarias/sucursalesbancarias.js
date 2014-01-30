@@ -69,7 +69,7 @@ app.controller('SucursalesPorEntidad', function($scope, $http, $routeParams, $lo
 
     $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/id/" + idEntidad).success(function(r) {
         $scope.entidadBancaria = r;
-        $http.get("/proyecto1_banco_servidor/api/SucursalesBancariasPorEntidad/" + $scope.entidadBancaria.idEntidad).success(function(result) {
+        $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/"+$scope.entidadBancaria.idEntidad+"/SucursalesBancarias").success(function(result) {
             $scope.sucursalesBancarias = result;
         });
     });
