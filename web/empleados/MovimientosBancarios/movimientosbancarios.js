@@ -27,19 +27,18 @@ app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http, $routeP
 
 
 app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $location) {
-//    $scope.tipoMovimientos = [{
-//            valor: "Debe",
-//            nombre: "Debe"
-//        }, {
-//            valor: "Haber",
-//            nombre: "Haber"
-//        }];
-//    $scope.movimientoBancario.tipoMovimientoBancario = $scope.tipoMovimientos[0].valor;
-
+    $scope.tipoMovimientos = [{
+            valor: "Debe",
+            nombre: "Debe"
+        }, {
+            valor: "Haber",
+            nombre: "Haber"
+        }];
     $scope.movimientoBancario = {};
+    $scope.movimientoBancario.tipoMovimientoBancario = $scope.tipoMovimientos[0].valor;
+
     $scope.cuentasBancarias;
     $scope.insertMovimientoBancario = function() {
-        //http://localhost:8084
         $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/", $scope.movimientoBancario).success(function(result) {
             $scope.movimientoBancario = result;
         });
@@ -52,16 +51,15 @@ app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $locati
 });
 
 app.controller('MovimientosBancariosUpdateCtrl', function($scope, $http, $routeParams, $location) {
-//    $scope.tipoMovimiento = [{
-//            valor: "Debe",
-//            nombre: "Debe"
-//        }, {
-//            valor: "Haber",
-//            nombre: "Haber"
-//        }];
-//    $scope.movimientoBancario.tipoMovimientoBancario = $scope.tipoMovimientos[0].valor;
-
+$scope.tipoMovimientos = [{
+            valor: "Debe",
+            nombre: "Debe"
+        }, {
+            valor: "Haber",
+            nombre: "Haber"
+        }];
     $scope.movimientoBancario = {};
+    $scope.movimientoBancario.tipoMovimientoBancario = $scope.tipoMovimientos[0].valor;
     $scope.cuentasBancarias;
 
     $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/" + $routeParams.id).success(function(r) {
