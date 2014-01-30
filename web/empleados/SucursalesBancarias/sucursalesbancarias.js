@@ -17,7 +17,7 @@ app.controller('SucursalesBancariasReadAllCtrl', function($scope, $http) {
 app.controller("SucursalesBancariasReadCtrl", function($scope, $http, $routeParams) {
     $scope.sucursalesBancarias = null;
     var id = $routeParams.id;
-    $http.get("/proyecto1_banco_servidor/api/SucursalBancaria/" + id).success(function(r) {
+    $http.get("/proyecto1_banco_servidor/api/SucursalBancaria/id/" + id).success(function(r) {
         $scope.sucursalesBancarias = r;
     });
 });

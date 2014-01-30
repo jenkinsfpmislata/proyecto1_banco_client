@@ -33,8 +33,12 @@
                                             <td></td>
                                         </tr>
                                         <tr>
-                                            <th valign="top">Account ID</th>
-                                            <td><input type="text" class="inp-form" ng-model="movimientoBancario.cuentaBancaria.idCuentaBancaria" /></td>
+                                            <th valign="top">Choose Account</th>
+                                            <td>	
+                                                <select ng-model="movimientoBancario.cuentaBancaria.idCuentaBancaria"  ng-options="cuentaBancaria.idCuentaBancaria as cuentaBancaria.idCuentaBancaria for cuentaBancaria in cuentasBancarias">                                                       
+                                                    <option value="">-- Choose Account --</option>
+                                                </select>
+                                            </td>
                                             <td></td>
                                         </tr>
                                         <tr>
