@@ -52,10 +52,13 @@
                                         <tr>
                                             <th valign="top">Type:</th>
                                             <td>	
-                                                <select  class="styledselect_form_1" ng-model="movimientoBancario.tipoMovimientoBancario">
+                                                <select ng-model="movimientoBancario.tipoMovimientoBancario"  ng-options="tipoMovimiento.valor as tipoMovimiento.nombre for tipoMovimiento in tipoMovimientos">                                                       
+                                                    <option value="">-- Transaction Type --</option>
+                                                </select>
+                                                <!--<select  class="styledselect_form_1" ng-model="movimientoBancario.tipoMovimientoBancario">
                                                     <option value="Debe">Debe</option>
                                                     <option value="Haber">Haber</option>
-                                                </select>
+                                                </select>-->
                                             </td>
                                             <td></td>
                                         </tr>
