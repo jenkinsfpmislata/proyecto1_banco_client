@@ -33,12 +33,22 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th valign="top">BranchID:</th>
-                                                <td><input type="text" class="inp-form" ng-model="cuentaBancaria.sucursalBancaria.idSucursalBancaria" /></td>
-                                                <td>
-                                                    <div class="error-left" style="display: none"></div>
-                                                    <div class="error-inner" style="display: none">This field is required.</div>
+                                                <th valign="top">Choose Entity</th>
+                                                <td>	
+                                                    <select ng-model="idEntidad"  ng-options="entidadBancaria.idEntidad as entidadBancaria.nombre for entidadBancaria in entidadesBancarias">                                                       
+                                                        <option value="">-- Choose Entity --</option>
+                                                    </select>
                                                 </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <th valign="top">Choose Branch</th>
+                                                <td>	
+                                                    <select ng-model="cuentaBancaria.sucursalBancaria.idSucursalBancaria"  ng-options="sucursalBancaria.idSucursalBancaria as sucursalBancaria.nombreSucursal for sucursalBancaria in sucursalesBancarias">                                                       
+                                                        <option value="">-- Choose Branch --</option>
+                                                    </select>
+                                                </td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <th valign="top">Account number :</th>

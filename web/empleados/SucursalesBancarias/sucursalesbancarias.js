@@ -17,7 +17,6 @@ app.controller('SucursalesBancariasReadAllCtrl', function($scope, $http) {
 app.controller("SucursalesBancariasReadCtrl", function($scope, $http, $routeParams) {
     $scope.sucursalesBancarias = null;
     var id = $routeParams.id;
-    //http://localhost:8084
     $http.get("/proyecto1_banco_servidor/api/SucursalBancaria/" + id).success(function(r) {
         $scope.sucursalesBancarias = r;
     });
@@ -34,10 +33,16 @@ app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http, $routePa
 
 
 app.controller('SucursalesBancariasInsertCtrl', function($scope, $http, $location) {
+    $scope.entidadesBancarias;
     $scope.sucursalBancaria = null;
 
+    $http.get("/proyecto1_banco_servidor/api/EntidadesBancarias").success(function(result) {
+        $scope.entidadesBancarias = result;
+    });
+
+
     $scope.insertSucursalBancaria = function() {
-        //http://localhost:8084
+        
         $http.post("/proyecto1_banco_servidor/api/SucursalBancaria/", $scope.sucursalBancaria).success(function(result) {
             $scope.sucursalBancaria = result;
         });
@@ -69,10 +74,10 @@ app.controller('SucursalesPorEntidad', function($scope, $http, $routeParams) {
 
     $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/id/" + idEntidad).success(function(r) {
         $scope.entidadBancaria = r;
-        $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/"+$scope.entidadBancaria.idEntidad+"/SucursalesBancarias").success(function(result) {
+        $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/" + $scope.entidadBancaria.idEntidad + "/SucursalesBancarias").success(function(result) {
             $scope.sucursalesBancarias = result;
         });
     });
-    
-    
+
+
 });

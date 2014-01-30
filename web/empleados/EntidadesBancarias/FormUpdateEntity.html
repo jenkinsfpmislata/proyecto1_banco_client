@@ -49,11 +49,8 @@
                                             <tr>
                                                 <th valign="top">Type:</th>
                                                 <td>	
-                                                    <select class="styledselect_form_1" ng-model="entidadBancaria.tipo">
-                                                        <option value="BANCO">Banco</option>
-                                                        <option value="COOPERATIVACREDITO">Cooperativa Credito</option>
-                                                        <option value="ESTFINANCIERO">Establecimiento Financiero</option>
-                                                        <option value="CAJAAHORRO">Caja Ahorro</option>
+                                                    <select ng-model="entidadBancaria.tipo"  ng-options="tipoEntidad.valor as tipoEntidad.nombre for tipoEntidad in tipoEntidades">                                                       
+                                                        <option value="">-- Tipo Entidad --</option>
                                                     </select>
                                                 </td>
                                                 <td></td>

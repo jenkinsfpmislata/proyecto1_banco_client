@@ -34,20 +34,54 @@ app.controller('CuentasBancariasDeleteCtrl', function($scope, $http, $routeParam
 });
 
 app.controller('CuentasBancariasInsertCtrl', function($scope, $http, $location) {
+    $scope.entidadesBancarias;
+    $scope.idEntidad = null;
+    $scope.sucursalesBancarias;
+    $scope.sucursal = null;
     $scope.cuentaBancaria = null;
+
+    $scope.$watch("idEntidad", function() {
+        if ($scope.idEntidad) {
+            $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/" + $scope.idEntidad + "/SucursalesBancarias").success(function(resultado) {
+                $scope.sucursalesBancarias = resultado;
+            });
+        } else {
+            $scope.sucursalesBancarias = [];
+        }
+
+    });
+    $http.get("/proyecto1_banco_servidor/api/EntidadesBancarias").success(function(result) {
+        $scope.entidadesBancarias = result;
+    });
+
     $scope.insertCuentaBancaria = function() {
         $http.post("/proyecto1_banco_servidor/api/CuentaBancaria/", $scope.cuentaBancaria).success(function(result) {
             $scope.cuentaBancaria = result;
         });
         $location.path("/CuentasBancarias");
     };
-    //$http.get("/proyecto1_banco_servidor/api/CuentasBancarias").success(function(result) {
-    //    $scope.cuentaBancaria = result;
-    //});
 });
 
 app.controller('CuentasBancariasUpdateCtrl', function($scope, $http, $routeParams, $location) {
+    $scope.entidadesBancarias;
+    $scope.idEntidad = null;
+    $scope.sucursalesBancarias;
+    $scope.sucursal = null;
     $scope.cuentaBancaria = null;
+
+    $scope.$watch("idEntidad", function() {
+        if ($scope.idEntidad) {
+            $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/" + $scope.idEntidad + "/SucursalesBancarias").success(function(resultado) {
+                $scope.sucursalesBancarias = resultado;
+            });
+        } else {
+            $scope.sucursalesBancarias = [];
+        }
+
+    });
+    $http.get("/proyecto1_banco_servidor/api/EntidadesBancarias").success(function(result) {
+        $scope.entidadesBancarias = result;
+    });
     $http.get("/proyecto1_banco_servidor/api/CuentaBancaria/" + $routeParams.id).success(function(r) {
         $scope.cuentaBancaria = r;
     });

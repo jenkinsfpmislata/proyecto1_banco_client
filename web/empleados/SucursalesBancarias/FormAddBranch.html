@@ -29,12 +29,13 @@
                                     <form role="form">
                                         <table border="0" cellpadding="0" cellspacing="0"  id="id-form">
                                             <tr>
-                                                <th valign="top">EntityID:</th>
-                                                <td><input type="text" class="inp-form" ng-model="sucursalBancaria.entidadBancaria.idEntidad" /></td>
-                                                <td>
-                                                    <div class="error-left" style="display: none"></div>
-                                                    <div class="error-inner" style="display: none">This field is required.</div>
+                                                <th valign="top">Choose Entity</th>
+                                                <td>	
+                                                    <select ng-model="idEntidadBancaria"  ng-options="entidadBancaria.idEntidadBancaria as entidadBancaria.nombre for entidadBancaria in entidadesBancarias">                                                       
+                                                        <option value="">-- Choose Entity --</option>
+                                                    </select>
                                                 </td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <th valign="top">Branch code :</th>
@@ -44,6 +45,7 @@
                                                     <div class="error-inner" style="display: none">This field is required.</div>
                                                 </td>
                                             </tr>
+                                            
                                             <tr>
                                                 <th valign="top">Branch Name</th>
                                                 <td><input type="text" class="inp-form" ng-model="sucursalBancaria.nombreSucursal" /></td>

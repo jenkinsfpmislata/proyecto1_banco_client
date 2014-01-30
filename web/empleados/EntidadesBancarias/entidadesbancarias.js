@@ -26,10 +26,24 @@ app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http, $routePar
 
             
 app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $location) {
-    $scope.entidadBancaria = null;
+    $scope.tipoEntidades = [{
+            valor: "BANCO",
+            nombre: "Bank"
+        }, {
+            valor: "CAJAAHORRO",
+            nombre: "Thrift"
+        }, {
+            valor: "COOPERATIVACREDITO",
+            nombre: "Credit union"
+        }, {
+            valor: "ESTFINANCIERO",
+            nombre: "Credit institution"
+        }];
+    $scope.entidadBancaria = {};
+    $scope.entidadBancaria.tipo = $scope.tipoEntidades[0].valor;
 
     $scope.insertEntidadBancaria = function() {
-                  //http://localhost:8084
+        //http://localhost:8084
         $http.post("/proyecto1_banco_servidor/api/EntidadBancaria/", $scope.entidadBancaria).success(function(result) {
             $scope.entidadBancaria = result;
         });
@@ -38,17 +52,30 @@ app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $location
 });
             
 app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http, $routeParams, $location) {
-    $scope.entidadBancaria = null;
+    $scope.tipoEntidades = [{
+            valor: "BANCO",
+            nombre: "Bank"
+        }, {
+            valor: "CAJAAHORRO",
+            nombre: "Thrift"
+        }, {
+            valor: "COOPERATIVACREDITO",
+            nombre: "Credit union"
+        }, {
+            valor: "ESTFINANCIERO",
+            nombre: "Credit institution"
+        }];
+    $scope.entidadBancaria = {};
+    $scope.entidadBancaria.tipo = $scope.tipoEntidades[0].valor;
 
     $scope.updateEntidadBancaria = function() {
-                 //http://localhost:8084
         $http.put("/proyecto1_banco_servidor/api/EntidadBancaria/"
                 + $routeParams.id, $scope.entidadBancaria).success(function(result) {
             $scope.entidadBancaria = result;
         });
         $location.path("/EntidadesBancarias");
     };
-    $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/id/"+$routeParams.id).success(function(r) {
-    $scope.entidadBancaria = r;
-    }); 
+    $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/" + $routeParams.id).success(function(r) {
+        $scope.entidadBancaria = r;
+    });
 });
