@@ -57,12 +57,12 @@ app.controller('SucursalesBancariasUpdateCtrl', function($scope, $http, $routePa
         $location.path("/SucursalesBancarias");
     };
 
-    $http.get("/proyecto1_banco_servidor/api/SucursalBancaria/" + $routeParams.id).success(function(r) {
+    $http.get("/proyecto1_banco_servidor/api/SucursalBancaria/id/" + $routeParams.id).success(function(r) {
         $scope.sucursalesBancarias = r;
     });
 });
 
-app.controller('SucursalesPorEntidad', function($scope, $http, $routeParams, $location) {
+app.controller('SucursalesPorEntidad', function($scope, $http, $routeParams) {
     var idEntidad = $routeParams.idEntidad;
     $scope.entidadBancaria = null;
     $scope.sucursalesBancarias = null;
