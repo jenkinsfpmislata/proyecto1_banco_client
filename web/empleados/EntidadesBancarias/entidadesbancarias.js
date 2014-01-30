@@ -75,7 +75,7 @@ app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http, $routePar
         });
         $location.path("/EntidadesBancarias");
     };
-    $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/" + $routeParams.id).success(function(r) {
+    $http.get("/proyecto1_banco_servidor/api/EntidadBancaria/id/" + $routeParams.id).success(function(r) {
         $scope.entidadBancaria = r;
     });
 });
