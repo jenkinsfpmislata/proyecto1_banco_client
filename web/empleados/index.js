@@ -38,7 +38,7 @@ app.config(function($routeProvider) {
                 controller: "SucursalesBancariasReadAllCtrl"
             })
             
-             .when("/SucursalesBancariasInsert/", {
+             .when("/SucursalesBancariasInsert/:id", {
                 templateUrl:"SucursalesBancarias/FormAddBranch.html",
                 controller: "SucursalesBancariasInsertCtrl"
             })
