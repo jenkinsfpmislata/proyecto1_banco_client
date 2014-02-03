@@ -78,3 +78,16 @@ $scope.tipoMovimientos = [{
         };
     });
 });
+
+app.controller('MovimientosPorCuenta', function($scope, $http, $routeParams) {
+    var idCuentaBancaria = $routeParams.idCuentaBancaria;
+    $scope.cuentaBancaria = null;
+    $scope.movimientosBancarios = null;
+
+    $http.get("/proyecto1_banco_servidor/api/CuentaBancaria/id/"+idCuentaBancaria).success(function(r) {
+        $scope.cuentaBancaria = r;
+        $http.get("/proyecto1_banco_servidor/api/CuentaBancaria/"+$scope.cuentaBancaria.idCuentaBancaria+"/MovimientosBancarios").success(function(result) {
+            $scope.movimientosBancarios = result;
+        });
+    });
+});

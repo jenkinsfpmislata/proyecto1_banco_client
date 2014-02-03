@@ -1,13 +1,8 @@
 <div id="content-outer">
     <!-- start content -->
     <div id="content">
-
         <!--  start page-heading -->
-        <div id="page-heading">
-            <h1>Accounts Page</h1>
-        </div>
         <!-- end page-heading -->
-
         <table border="0" width="100%" cellpadding="0" cellspacing="0" id="content-table">
             <tr>
                 <th rowspan="3" class="sized"><img src="images/shared/side_shadowleft.jpg" width="20" height="300" alt="" /></th>
@@ -21,10 +16,8 @@
                 <td>
                     <!--  start content-table-inner ...................................................................... START -->
                     <div id="content-table-inner">
-
                         <!--  start table-content  -->
-                        <div id="table-content">
-
+                        <div id="SucursalesPorEntidad">
                             <!--  start message-yellow -->
                             <div id="message-yellow" style="display: none">
                                 <table border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -62,62 +55,76 @@
                             <div id="message-green" style="display: none">
                                 <table border="0" width="100%" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td class="green-left">Product added sucessfully. <a href="">Add new one.</a></td>
-                                        <td class="green-right"><a class="close-green"><img src="images/table/icon_close_green.gif"   alt="" /></a></td>
+                                        <td class="green-left">Entity added sucessfully.</td>
+                                        <td class="green-right"><a class="close-green"><img src="images/table/icon_close_green.gif"   alt="" href="javascript:closeGreen()"/></a></td>
                                     </tr>
                                 </table>
                             </div>
                             <!--  end message-green -->
-
-
                             <!--  start product-table ..................................................................................... -->
-                            <form id="mainform" action="">
-                                <table  border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
-                                    <tr>
-                                        <th class="table-header-check"><a id="toggle-all" ></a> </th>
+
+                            <table  border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+                                <tr>
                                         <th class="table-header-repeat line-left minwidth-1"><a href="">AccountID</a>	</th>
-                                        <th class="table-header-repeat line-left minwidth-1"><a href="">BranchID</a></th>
+                                        <th class="table-header-repeat line-left minwidth-1"><a href="">Branch Name</a></th>
                                         <th class="table-header-repeat line-left"><a href="">Acc. number</a></th>
                                         <th class="table-header-repeat line-left"><a href="">CD</a></th>
                                         <th class="table-header-options line-left"><a href="">Balance</a></th>
                                         <th class="table-header-options line-left"><a href="">Cif</a></th>
-                                        <th class="table-header-options line-left"><a href="">Options</a></th>
+                                        <th class="table-header-options line-left"><a href="">Add transaction</a></th>
                                     </tr>
-                                    <tr ng-repeat="cuentaBancaria in cuentasBancarias">
-                                        <td><input  type="checkbox"/></td>
+                                <tr>
                                         <td>{{cuentaBancaria.idCuentaBancaria}}</td>
-                                        <td>{{cuentaBancaria.sucursalBancaria.idSucursalBancaria}}</td>
-                                        <td><a href="#/CuentaBancaria/{{cuentaBancaria.idCuentaBancaria}}/MovimientosBancarios">{{cuentaBancaria.numeroCuenta}}</a></td>
+                                        <td>{{cuentaBancaria.sucursalBancaria.nombreSucursal}}</td>
+                                        <td>{{cuentaBancaria.numeroCuenta}}</td>
                                         <td>{{cuentaBancaria.dc}}</td>
                                         <td>{{cuentaBancaria.saldo}}</td>
                                         <td>{{cuentaBancaria.cif}}</td>
                                         <td class="options-width">
-                                            <a href="#/CuentasBancariasUpdate/{{cuentaBancaria.idCuentaBancaria}}" title="Edit" class="icon-1 info-tooltip"></a>
-                                            <a href="#/CuentasBancariasDelete/{{cuentaBancaria.idCuentaBancaria}}" title="Delete" class="icon-2 info-tooltip"></a>
+                                            <a href="#/CuentasBancariasInsert/{{cuentaBancaria.idCuentaBancaria}}" title="Add Transaction" class="icon-5 info-tooltip"></a>
+                                        </td>
+                            </table>                            
+                            <!--  end product-table................................... --> 
+                        </div>
+                        <div id="sucursalesDeEntidad">
+                            <h4>Movimientos Bancarios de {{cuentaBancaria.idCuentaBancaria}}</h4>
+                            <table  border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+                                <tr>
+                                        <th class="table-header-repeat line-left minwidth-1"><a href="">TransactionID</a>	</th>
+                                        <th class="table-header-repeat line-left minwidth-1"><a href="">AccountID</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">TransactionType</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">Import</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">Date</a></th>
+                                        <th class="table-header-repeat line-left"><a href="">Concept</a></th>                       
+                                        <th class="table-header-options line-left"><a href="">Options</a></th>
+                                    </tr>
+                                <tr ng-repeat="movimientoBancario in movimientosBancarios">
+                                        <td>{{movimientoBancario.idMovimientoBancario}}</td>
+                                        <td>{{movimientoBancario.cuentaBancaria.idCuentaBancaria}}</td>
+                                        <td>{{movimientoBancario.tipoMovimientoBancario}}</td>
+                                        <td>{{movimientoBancario.importe}}</td>
+                                        <td>{{movimientoBancario.fecha| date:'medium'}}</td>
+                                        <td>{{movimientoBancario.concepto}}</td>
+                                        <td class="options-width">
+                                            <a href="#/MovimientosBancariosUpdate/{{movimientoBancario.idMovimientoBancario}}" title="Edit" class="icon-1 info-tooltip"></a>
+                                            <a href="#/MovimientosBancariosDelete/{{movimientoBancario.idMovimientoBancario}}" title="Delete" class="icon-2 info-tooltip"></a>
                                         </td>
                                     </tr>
-                                </table>
-                                <!--  end product-table................................... --> 
-                            </form>
+                                </tr>
+                            </table>  
                         </div>
                         <!--  end content-table  -->
 
                         <!--  start actions-box ............................................... -->
                         <div id="actions-box" style="display: none">
-                            <form action="#/SucursalBancaria/">
-                                <h5>Branch ID:</h5><input type="text" name="id" class="inp-form"/>
-                                <input type="submit" class="form-submit" value="Search">
-                            </form>
+                            <form role="form" >
+                                <h5>Entity ID:</h5><input type="text" name="id" ng-model="entidadBancaria.idEntidad" class="inp-form"/>
+                                <button type="button" class="form-submit" ng-click="">Search</button>
+                            </form>	
+                            <div class="clear"></div>
                         </div>
                         <!-- end actions-box........... -->
-
-                        <!--  start paging..................................................... -->
-                        <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
-                        </table>
-                        <!--  end paging................ -->
-
                         <div class="clear"></div>
-
                     </div>
                     <!--  end content-table-inner ............................................END  -->
                 </td>
@@ -130,7 +137,6 @@
             </tr>
         </table>
         <div class="clear">&nbsp;</div>
-
     </div>
     <!--  end content -->
     <div class="clear">&nbsp;</div>
