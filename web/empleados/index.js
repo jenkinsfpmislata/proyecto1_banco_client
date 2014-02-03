@@ -102,7 +102,7 @@ app.config(function($routeProvider) {
                 controller: "MovimientosBancariosReadAllCtrl"
             })
 
-            .when("/MovimientosBancariosInsert/", {
+            .when("/MovimientosBancariosInsert/:idCuentaBancaria", {
                 templateUrl: "MovimientosBancarios/FormAddTransaction.html",
                 controller: "MovimientosBancariosInsertCtrl"
             })

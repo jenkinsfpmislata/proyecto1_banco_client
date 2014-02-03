@@ -26,7 +26,7 @@ app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http, $routeP
 });
 
 
-app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $location) {
+app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $location, $routeParams) {
     $scope.tipoMovimientos = [{
             valor: "Debe",
             nombre: "Debe"
@@ -39,10 +39,10 @@ app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $locati
 
     $scope.cuentasBancarias;
     $scope.insertMovimientoBancario = function() {
-        $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/", $scope.movimientoBancario).success(function(result) {
+        $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/"+$routeParams.idCuentaBancaria, $scope.movimientoBancario).success(function(result) {
             $scope.movimientoBancario = result;
         });
-        $location.path("/MovimientosBancarios");
+        $location.path("/CuentaBancaria/"+$routeParams.idCuentaBancaria+"/MovimientosBancarios");
     };
 
     $http.get("/proyecto1_banco_servidor/api/CuentasBancarias").success(function(result) {
