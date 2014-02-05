@@ -6,7 +6,7 @@
 }
 #contenedor{
     width:65em;
-    margin-left: 4em;
+    margin-left: 24em;
     height:100%;
 }
 /*Cabecera*/
@@ -15,7 +15,7 @@
 }
 #cabecera img{
 margin-left:2%;
-   
+margin-top: 1%;
 }
 #cabecera a{
     float: right;

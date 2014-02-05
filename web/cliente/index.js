@@ -11,7 +11,7 @@ app.config(function($routeProvider) {
             {
                 templateUrl: "transfers/transfers.html",
                 controller: "TransfersCtrl"
-            })
+            })           
         .otherwise({
         redirectTo: "/"
     });

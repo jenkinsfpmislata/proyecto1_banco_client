@@ -1,84 +1,43 @@
 <div id="main">
-                <div id="notificaciones">
-                    <table class="table table-striped">
-                        <tr>
-                            <td>Notifications</td>  
-                        </tr>
-                    </table>
-                </div>  
-                <div id="usuario">
-                    <h3>Emilio Honrubia Mar&iacute;n </h3>
-                    <p>Account Type: <i>Standard</i></p>
-                </div>
-                <div class="border"></div>
-                <div id="saldo">
-                    <h3>Current cash: 3699,07&euro;</h3>
-                    <p>Current cash in euros: 3699,07&euro;</p>
-                    <p>Current cash in dollars: 5034,43&dollar;</p>
-                    <h3>Current cash(Pending transfers - current cash): 3699,07&euro;</h3>
-                </div>
+    <div id="notificaciones">
+        <table class="table table-striped">
+            <tr>
+                <td>Notifications</td>  
+            </tr>
+        </table>
+    </div>  
+    <div id="usuario">
+        <h3>Emilio Honrubia Mar&iacute;n </h3>
+        <p>Account Type: <i>Standard</i></p>
+    </div>
+    <div class="border"></div>
+    <div id="saldo">
+        <h3>Current cash:{{cuentaBancaria.saldo}}&euro;</h3>
+        <p>Current cash in euros: {{cuentaBancaria.saldo}}&euro;</p>
+        <p>Current cash in dollars: 5034,43&dollar;</p>
+        <h3>Current cash(Pending transfers - current cash): {{cuentaBancaria.saldo}}&euro;</h3>
+    </div>
 
-            </div>
+</div>
 
-            <div id="transacciones">
+<div id="transacciones">
 
-                <h5>Last six transactions</h5>
-                <table class="table table-hover table-striped" id="tabla" >
-                    <tr id="tcabecera">
-                        <td>ID Trans</td>
-                        <td>Date</td>
-                        <td>Concept</td>
-                        <td>Amount</td>
-                        <td>Status</td>
-                        <td>Destinatario</td>
-                    </tr>
-                    <tr>
-                        <td>44205478788</td>
-                        <td>8/01/2014</td>
-                        <td>Paysheet</td>
-                        <td>+800.98&euro;</td>
-                        <td>Pending</td>
-                        <td>Emilio Honrubia</td>  
-                    </tr>
-                    <tr>
-                        <td>0124857887</td>
-                        <td>03/01/2014</td>
-                        <td>Transfer</td>
-                        <td>+50&euro;</td>
-                        <td>Recive</td>
-                        <td>Emilio Honrubia</td>  
-                    </tr>
-                    <tr>
-                        <td>4412000145</td>
-                        <td>25/12/2013</td>
-                        <td>Send-Out</td>
-                        <td>-201.7&euro;</td>
-                        <td>Sent</td>
-                        <td>PCCOMPONENTES</td> 
-                    </tr>
-                    <tr>
-                        <td>0015766577</td>
-                        <td>25/12/2013</td>
-                        <td>Commisions</td>
-                        <td>-0.21&euro;</td>
-                        <td>Sent</td>
-                        <td>BMN</td> 
-                    </tr>
-                    <tr>
-                        <td>0245778880</td>
-                        <td>20/11/2013</td>
-                        <td>Paysheet</td>
-                        <td>+800.98&euro;</td>
-                        <td>Recive</td>
-                        <td>Emilio Honrubia</td> 
-                    </tr>
-                    <tr>
-                        <td>1248572065</td>
-                        <td>03/11/2013</td>
-                        <td>Beca TesoroP</td>
-                        <td>+3100&euro;</td>
-                        <td>Recive</td>
-                        <td>Emilio Honrubia</td>  
-                    </tr>
-                </table>
-            </div>
+    <h5>Last six transactions</h5>
+    <table class="table table-hover table-striped" id="tabla" >
+        <tr id="tcabecera">
+            <td>ID Trans</td>
+            <td>Date</td>
+            <td>Concept</td>
+            <td>Amount</td>
+            <td>Type</td>
+        </tr>
+        <tr ng-repeat="movimientoBancario in movimientosBancarios">
+            <td>{{movimientoBancario.idMovimientoBancario}}</td>
+            <td>{{movimientoBancario.fecha| date:'medium'}}</td>
+            <td>{{movimientoBancario.concepto}}</td>
+            <td>{{movimientoBancario.importe}}</td>
+            <td>{{movimientoBancario.tipoMovimientoBancario}}</td>
+        </tr>
+
+    </table>
+</div>
