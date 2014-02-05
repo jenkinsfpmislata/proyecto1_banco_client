@@ -2,11 +2,10 @@
 #cuerpo{
     width: 100%;
     height: 100%;
-    background-color:#F5F5F5;
 }
 #contenedor{
     width:65em;
-    margin-left: 24em;
+    margin-left: 2.5em;
     height:100%;
 }
 /*Cabecera*/
@@ -103,7 +102,8 @@ margin-top: 1%;
     text-align: center;
     padding-top: 2em;
     height: 4em;
-}
+    
+}body{background-color:#F5F5F5;}
 /* ------------------------------ TRANSFERS.HTML -------------------------------------*/
 #selFecha{
     margin-top: 2em;
