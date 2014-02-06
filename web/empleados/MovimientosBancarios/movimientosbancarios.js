@@ -36,18 +36,21 @@ app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $locati
         }];
     $scope.movimientoBancario = {};
     $scope.movimientoBancario.tipoMovimientoBancario = $scope.tipoMovimientos[0].valor;
-
-    $scope.cuentasBancarias;
+   
+    //==========================================================================/
+    $scope.cuentaBancaria;
+    
+    $http.get("/proyecto1_banco_servidor/api/CuentaBancaria/id/"+$routeParams.idCuentaBancaria).success(function(result) {
+        $scope.cuentaBancaria = result;
+    });
+    
     $scope.insertMovimientoBancario = function() {
+        $scope.movimientoBancario.cuentaBancaria = $scope.cuentaBancaria;
         $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/"+$routeParams.idCuentaBancaria, $scope.movimientoBancario).success(function(result) {
             $scope.movimientoBancario = result;
         });
         $location.path("/CuentaBancaria/"+$routeParams.idCuentaBancaria+"/MovimientosBancarios");
     };
-
-    $http.get("/proyecto1_banco_servidor/api/CuentasBancarias").success(function(result) {
-        $scope.cuentasBancarias = result;
-    });
 });
 
 app.controller('MovimientosBancariosUpdateCtrl', function($scope, $http, $routeParams, $location) {
