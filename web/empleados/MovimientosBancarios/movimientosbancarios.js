@@ -5,12 +5,12 @@ app.controller('MovimientosBancariosReadAllCtrl', function($scope, $http) {
     $scope.movimientosBancarios = null;
     $scope.nombre = null;
     //http://localhost:8084
-    $http.get("/proyecto1_banco_servidor/api/MovimientosBancarios").success(function(result) {
+    $http.get("/proyecto1_banco_server/api/MovimientosBancarios").success(function(result) {
         $scope.movimientosBancarios = result;
     });
 
     $scope.read = function() {
-        $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/" + $scope.nombre).success(function(r) {
+        $http.get("/proyecto1_banco_server/api/MovimientoBancario/" + $scope.nombre).success(function(r) {
             $scope.movimientosBancarios = r;
         });
         $location.path("/MovimientosBancarios");
@@ -20,7 +20,7 @@ app.controller('MovimientosBancariosReadAllCtrl', function($scope, $http) {
 app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http, $routeParams, $location) {
     var id = $routeParams.id;
     //http://localhost:8084
-    $http.delete("/proyecto1_banco_servidor/api/MovimientoBancario/" + id).success(function() {
+    $http.delete("/proyecto1_banco_server/api/MovimientoBancario/" + id).success(function() {
         $location.path("/MovimientosBancarios");
     });
 });
@@ -40,13 +40,13 @@ app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $locati
     //==========================================================================/
     $scope.cuentaBancaria;
     
-    $http.get("/proyecto1_banco_servidor/api/CuentaBancaria/id/"+$routeParams.idCuentaBancaria).success(function(result) {
+    $http.get("/proyecto1_banco_server/api/CuentaBancaria/id/"+$routeParams.idCuentaBancaria).success(function(result) {
         $scope.cuentaBancaria = result;
     });
     
     $scope.insertMovimientoBancario = function() {
         $scope.movimientoBancario.cuentaBancaria = $scope.cuentaBancaria;
-        $http.post("/proyecto1_banco_servidor/api/MovimientoBancario/"+$routeParams.idCuentaBancaria, $scope.movimientoBancario).success(function(result) {
+        $http.post("/proyecto1_banco_server/api/MovimientoBancario/"+$routeParams.idCuentaBancaria, $scope.movimientoBancario).success(function(result) {
             $scope.movimientoBancario = result;
         });
         $location.path("/CuentaBancaria/"+$routeParams.idCuentaBancaria+"/MovimientosBancarios");
@@ -65,15 +65,15 @@ $scope.tipoMovimientos = [{
     $scope.movimientoBancario.tipoMovimientoBancario = $scope.tipoMovimientos[0].valor;
     $scope.cuentasBancarias;
 
-    $http.get("/proyecto1_banco_servidor/api/MovimientoBancario/" + $routeParams.id).success(function(r) {
+    $http.get("/proyecto1_banco_server/api/MovimientoBancario/" + $routeParams.id).success(function(r) {
         $scope.movimientoBancario = r;
-            $http.get("/proyecto1_banco_servidor/api/CuentasBancarias").success(function(result) {
+            $http.get("/proyecto1_banco_server/api/CuentasBancarias").success(function(result) {
                 $scope.cuentasBancarias = result;
         });
 
         $scope.updateMovimientoBancario = function() {
             //http://localhost:8084
-            $http.put("/proyecto1_banco_servidor/api/MovimientoBancario/"
+            $http.put("/proyecto1_banco_server/api/MovimientoBancario/"
                     + $routeParams.id, $scope.movimientoBancario).success(function(result) {
                 $scope.movimientoBancario = result;
             });
@@ -87,9 +87,9 @@ app.controller('MovimientosPorCuenta', function($scope, $http, $routeParams) {
     $scope.cuentaBancaria = null;
     $scope.movimientosBancarios = null;
 
-    $http.get("/proyecto1_banco_servidor/api/CuentaBancaria/id/"+idCuentaBancaria).success(function(r) {
+    $http.get("/proyecto1_banco_server/api/CuentaBancaria/id/"+idCuentaBancaria).success(function(r) {
         $scope.cuentaBancaria = r;
-        $http.get("/proyecto1_banco_servidor/api/CuentaBancaria/"+$scope.cuentaBancaria.idCuentaBancaria+"/MovimientosBancarios").success(function(result) {
+        $http.get("/proyecto1_banco_server/api/CuentaBancaria/"+$scope.cuentaBancaria.idCuentaBancaria+"/MovimientosBancarios").success(function(result) {
             $scope.movimientosBancarios = result;
         });
     });
