@@ -4,28 +4,34 @@
 app.controller('EntidadesBancariasReadAllCtrl', function($scope, $http) {
     $scope.entidadesBancarias = null;
     $scope.nombre = null;
-             //http://localhost:8084
+    //http://localhost:8084
     $http.get("/proyecto1_banco_server/api/EntidadesBancarias").success(function(result) {
         $scope.entidadesBancarias = result;
     });
-    
-    $scope.read = function(){
-    $http.get("/proyecto1_banco_server/api/EntidadBancaria/"+$scope.nombre).success(function(r) {
-        $scope.entidadesBancarias = r;
-        }); 
+
+    $scope.read = function() {
+        $http.get("/proyecto1_banco_server/api/EntidadBancaria/" + $scope.nombre).success(function(r) {
+            $scope.entidadesBancarias = r;
+        });
     };
 });
-             
+
 app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http, $routeParams, $location) {
+
     var id = $routeParams.id;
-                //http://localhost:8084
+    //http://localhost:8084
     $http.delete("/proyecto1_banco_server/api/EntidadBancaria/" + id).success(function() {
+        $scope.ListaMensajes = [];
         $location.path("/EntidadesBancarias");
+
+    }).error(function() {
+        $scope.ListaMensajes = [{datos: "Error : ", mensaje: "No se ha podido efectuar su peticion."}];
     });
 });
 
-            
+
 app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $location) {
+
     $scope.tipoEntidades = [{
             valor: "BANCO",
             nombre: "Bank"
@@ -46,11 +52,16 @@ app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $location
         //http://localhost:8084
         $http.post("/proyecto1_banco_server/api/EntidadBancaria/", $scope.entidadBancaria).success(function(result) {
             $scope.entidadBancaria = result;
+            $scope.ListaMensajes = [];
+            $location.path("/EntidadesBancarias");
+        }).error(function(result, status) {
+                $scope.ListaMensajes = [{datos: status , mensaje: "No se ha podido realizar su petición."}];
+                $location.path("/EntidadesBancariasInsert/");
         });
-        $location.path("/EntidadesBancarias");
+
     };
 });
-            
+
 app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http, $routeParams, $location) {
     $scope.tipoEntidades = [{
             valor: "BANCO",
@@ -72,8 +83,11 @@ app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http, $routePar
         $http.put("/proyecto1_banco_server/api/EntidadBancaria/"
                 + $routeParams.id, $scope.entidadBancaria).success(function(result) {
             $scope.entidadBancaria = result;
+            $location.path("/EntidadesBancarias");
+        }).error(function(result, status) {
+                $scope.ListaMensajes = [{datos:status , mensaje: "No se ha podido efectuar su peticion."}];
+                $location.path("/EntidadesBancariasUpdate/"+ $routeParams.id);
         });
-        $location.path("/EntidadesBancarias");
     };
     $http.get("/proyecto1_banco_server/api/EntidadBancaria/id/" + $routeParams.id).success(function(r) {
         $scope.entidadBancaria = r;
