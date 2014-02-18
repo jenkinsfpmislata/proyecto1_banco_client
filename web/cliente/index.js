@@ -11,7 +11,12 @@ app.config(function($routeProvider) {
             {
                 templateUrl: "transfers/transfers.html",
                 controller: "TransfersCtrl"
-            })           
+            })
+            
+            .when("/CuentaBancaria/:idCuentaBancaria/MovimientosBancarios", {
+                templateUrl: "MovimientosBancarios/MovimientosPorCuenta.html",
+                controller: "MovimientosPorCuenta"
+            })
         .otherwise({
         redirectTo: "/"
     });
