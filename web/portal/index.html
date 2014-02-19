@@ -1,4 +1,4 @@
-<html>
+<html ng-app="app">
     <head>
         <title>BitBank: Our on-line bank</title>
         <link rel="stylesheet" type="text/css" href="../css/index.css" />
@@ -7,9 +7,10 @@
         <script src="../lib/angularjs/js/angular-route.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.js"></script>
         <script src="../js/index.js"></script>
+        <script src="../cliente/login.js"></script>
     </head>
 
-    <body onLoad="inicia()">
+    <body onLoad="inicia()" ng-controller="LoginCtrl">
         <div id="contenido">
             <div id="cabecera">
                 <div id="logo">
@@ -17,9 +18,9 @@
                 </div>
                 <div id="inicioSesion">
                     <form class="form-inline" role="form" action="../cliente/index.html">
-                        <input type="text" class="form form-control" placeholder="Your email" />
-                        <input type="password" class="form form-control" placeholder="Password" />
-                        <input type="submit" class="btn btn-primary" value="Login"/>
+                        <input type="text" ng-model="login.username" class="form form-control" placeholder="Username" />
+                        <input type="password" ng-model="login.password" class="form form-control" placeholder="Password" />
+                        <a ng-click="logeo()" class="btn btn-primary"> Login </a>
                     </form>
                 </div>
             </div>
@@ -46,7 +47,7 @@
 
                 <div id="info1">
                     <center><img src="../img/tarjeta.jpg"/></center>
-                    <p>B1% permanent return on purchases in all establishments forever. No limits, no restrictions</p>
+                    <p>Bonus +1% permanent return on purchases in all establishments forever. No limits, no restrictions</p>
                     <a href="#" class="btn btn-primary" role="button">Read more</a> <a href="#" class="btn btn-default" role="button">My cards</a>
                 </div>
 
