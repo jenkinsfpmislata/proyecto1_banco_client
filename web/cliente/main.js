@@ -1,5 +1,5 @@
 app.controller('MainCtrl', function($scope, $http) {
-
+    
     $scope.cuentaBancaria = null;
     $scope.movimientosBancarios = null;
 

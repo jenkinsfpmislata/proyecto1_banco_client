@@ -10,10 +10,6 @@ app.controller('LoginCtrl', function($scope, $http) {
         });
     };
     
-    $scope.getLogin=function(){
-        
-    }
-    
     $scope.logout=function(){
         
     }
