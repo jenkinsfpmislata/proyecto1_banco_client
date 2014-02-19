@@ -22,11 +22,10 @@ app.controller('EntidadesBancariasDeleteCtrl', function($scope, $http, $routePar
     //http://localhost:8084
     $http.delete("/proyecto1_banco_server/api/EntidadBancaria/" + id).success(function() {
         $scope.ListaMensajes = [];
-        $location.path("/EntidadesBancarias");
-
     }).error(function() {
         $scope.ListaMensajes = [{datos: "Error : ", mensaje: "No se ha podido efectuar su peticion."}];
     });
+    $location.path("/EntidadesBancarias");
 });
 
 
@@ -54,8 +53,19 @@ app.controller('EntidadesBancariasInsertCtrl', function($scope, $http, $location
             $scope.entidadBancaria = result;
             $scope.ListaMensajes = [];
             $location.path("/EntidadesBancarias");
-        }).error(function(result, status) {
-                $scope.ListaMensajes = [{datos: status , mensaje: "No se ha podido realizar su petición."}];
+        }).error(function(data, status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
                 $location.path("/EntidadesBancariasInsert/");
         });
 
@@ -84,8 +94,19 @@ app.controller('EntidadesBancariasUpdateCtrl', function($scope, $http, $routePar
                 + $routeParams.id, $scope.entidadBancaria).success(function(result) {
             $scope.entidadBancaria = result;
             $location.path("/EntidadesBancarias");
-        }).error(function(result, status) {
-                $scope.ListaMensajes = [{datos:status , mensaje: "No se ha podido efectuar su peticion."}];
+        }).error(function(data, status) {
+                switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
                 $location.path("/EntidadesBancariasUpdate/"+ $routeParams.id);
         });
     };

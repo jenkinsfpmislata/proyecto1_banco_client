@@ -1,3 +1,13 @@
+
+<div class="alert alert-danger" ng-show="ListaMensajes.length>0" ng-click="ListaMensajes=[]">
+    <ul>
+        <li ng-repeat="unMensaje in ListaMensajes">
+            <strong> Error : {{unMensaje.datos}}</strong>
+            {{unMensaje.mensaje}}
+        </li>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="ListaMensajes=[]">X</button>
+    </ul>
+</div>
 <div id="content-outer">
     <!-- start content -->
     <div id="content">
