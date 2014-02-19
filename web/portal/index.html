@@ -1,4 +1,4 @@
-<html>
+<html ng-app="app">
     <head>
         <title>BitBank: Our on-line bank</title>
         <link rel="stylesheet" type="text/css" href="../css/index.css" />
@@ -7,9 +7,10 @@
         <script src="../lib/angularjs/js/angular-route.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.js"></script>
         <script src="../js/index.js"></script>
+        <script src="../cliente/login.js"></script>
     </head>
 
-    <body onLoad="inicia()">
+    <body onLoad="inicia()" ng-controller="LoginCtrl">
         <div id="contenido">
             <div id="cabecera">
                 <div id="logo">
