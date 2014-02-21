@@ -29,8 +29,22 @@ app.controller('CuentasBancariasDeleteCtrl', function($scope, $http, $routeParam
     $scope.cuentasBancarias = null;
     var id = $routeParams.id;
     $http.delete("/proyecto1_banco_server/api/CuentaBancaria/" + id).success(function() {
-        $location.path("/CuentasBancarias");
+        $scope.ListaMensajes = [];
+    }).error(function(data,status) {
+        switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
     });
+    $location.path("/CuentasBancarias");
 });
 
 app.controller('CuentasBancariasInsertCtrl', function($scope, $http, $location) {
@@ -56,9 +70,25 @@ app.controller('CuentasBancariasInsertCtrl', function($scope, $http, $location) 
 
     $scope.insertCuentaBancaria = function() {
         $http.post("/proyecto1_banco_server/api/CuentaBancaria/", $scope.cuentaBancaria).success(function(result) {
+            $scope.ListaMensajes = [];
             $scope.cuentaBancaria = result;
-        });
-        $location.path("/CuentasBancarias");
+            $location.path("/CuentasBancarias");
+        }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+            $location.path("/CuentasBancariasInsert/");
+    });
+        
     };
 });
 
@@ -89,8 +119,23 @@ app.controller('CuentasBancariasUpdateCtrl', function($scope, $http, $routeParam
     $scope.updateCuentaBancaria = function() {
         $http.put("/proyecto1_banco_server/api/CuentaBancaria/"
                 + $routeParams.id, $scope.cuentaBancaria).success(function(result) {
+            $scope.ListaMensajes = [];
             $scope.cuentaBancaria = result;
-        });
+        }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+            $location.path("/CuentasBancariasUpdate/"+ $routeParams.id);
+    });
         $location.path("/CuentasBancarias");
     };
 });

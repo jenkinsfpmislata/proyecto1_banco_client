@@ -9,12 +9,4 @@ app.controller('LoginCtrl', function($scope, $http) {
             alert("Error al introducir el usuario o la contraseña");
         });
     };
-    
-    $scope.getLogin=function(){
-        
-    }
-    
-    $scope.logout=function(){
-        
-    }
 });

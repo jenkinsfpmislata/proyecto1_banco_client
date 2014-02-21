@@ -22,6 +22,19 @@ app.controller('MovimientosBancariosDeleteCtrl', function($scope, $http, $routeP
     //http://localhost:8084
     $http.delete("/proyecto1_banco_server/api/MovimientoBancario/" + id).success(function() {
         $location.path("/MovimientosBancarios");
+    }).error(function(data,status) {
+        switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
     });
 });
 
@@ -36,25 +49,41 @@ app.controller('MovimientosBancariosInsertCtrl', function($scope, $http, $locati
         }];
     $scope.movimientoBancario = {};
     $scope.movimientoBancario.tipoMovimientoBancario = $scope.tipoMovimientos[0].valor;
-   
+
     //==========================================================================/
     $scope.cuentaBancaria;
-    
-    $http.get("/proyecto1_banco_server/api/CuentaBancaria/id/"+$routeParams.idCuentaBancaria).success(function(result) {
+
+    $http.get("/proyecto1_banco_server/api/CuentaBancaria/id/" + $routeParams.idCuentaBancaria).success(function(result) {
         $scope.cuentaBancaria = result;
     });
-    
+
     $scope.insertMovimientoBancario = function() {
         $scope.movimientoBancario.cuentaBancaria = $scope.cuentaBancaria;
-        $http.post("/proyecto1_banco_server/api/MovimientoBancario/"+$routeParams.idCuentaBancaria, $scope.movimientoBancario).success(function(result) {
+        $http.post("/proyecto1_banco_server/api/MovimientoBancario/" + $routeParams.idCuentaBancaria, $scope.movimientoBancario).success(function(result) {
+            $scope.ListaMensajes = [];
             $scope.movimientoBancario = result;
+            $location.path("/CuentaBancaria/" + $routeParams.idCuentaBancaria + "/MovimientosBancarios");
+        }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+            $location.path("/MovimientosBancariosInsert/" + $routeParams.idCuentaBancaria);
         });
-        $location.path("/CuentaBancaria/"+$routeParams.idCuentaBancaria+"/MovimientosBancarios");
+
     };
 });
 
 app.controller('MovimientosBancariosUpdateCtrl', function($scope, $http, $routeParams, $location) {
-$scope.tipoMovimientos = [{
+    $scope.tipoMovimientos = [{
             valor: "Debe",
             nombre: "Debe"
         }, {
@@ -67,17 +96,33 @@ $scope.tipoMovimientos = [{
 
     $http.get("/proyecto1_banco_server/api/MovimientoBancario/" + $routeParams.id).success(function(r) {
         $scope.movimientoBancario = r;
-            $http.get("/proyecto1_banco_server/api/CuentasBancarias").success(function(result) {
-                $scope.cuentasBancarias = result;
+        $http.get("/proyecto1_banco_server/api/CuentasBancarias").success(function(result) {
+            $scope.cuentasBancarias = result;
         });
 
         $scope.updateMovimientoBancario = function() {
             //http://localhost:8084
             $http.put("/proyecto1_banco_server/api/MovimientoBancario/"
                     + $routeParams.id, $scope.movimientoBancario).success(function(result) {
+                $scope.ListaMensajes = [];
                 $scope.movimientoBancario = result;
+                $location.path("/MovimientosBancarios");
+            }).error(function(data,status) {
+                switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+                $location.path("/MovimientosBancariosUpdate/" + $routeParams.idCuentaBancaria);
             });
-            $location.path("/MovimientosBancarios");
+
         };
     });
 });
@@ -87,10 +132,32 @@ app.controller('MovimientosPorCuenta', function($scope, $http, $routeParams) {
     $scope.cuentaBancaria = null;
     $scope.movimientosBancarios = null;
 
-    $http.get("/proyecto1_banco_server/api/CuentaBancaria/id/"+idCuentaBancaria).success(function(r) {
+    $http.get("/proyecto1_banco_server/api/CuentaBancaria/id/" + idCuentaBancaria).success(function(r) {
+        $scope.ListaMensajes = [];
         $scope.cuentaBancaria = r;
-        $http.get("/proyecto1_banco_server/api/CuentaBancaria/"+$scope.cuentaBancaria.idCuentaBancaria+"/MovimientosBancarios").success(function(result) {
+        $http.get("/proyecto1_banco_server/api/CuentaBancaria/" + $scope.cuentaBancaria.idCuentaBancaria + "/MovimientosBancarios").success(function(result) {
+            $scope.ListaMensajes = [];
             $scope.movimientosBancarios = result;
+        }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
         });
+    }).error(function(data,status) {
+        switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
     });
 });

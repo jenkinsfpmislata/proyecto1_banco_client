@@ -27,7 +27,21 @@ app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http, $routePa
     var id = $routeParams.id;
     //http://localhost:8084
     $http.delete("/proyecto1_banco_server/api/SucursalBancaria/" + id).success(function() {
+        $scope.ListaMensajes = [];
         $location.path("/SucursalesBancarias");
+    }).error(function(data,status) {
+        switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
     });
 });
 
@@ -35,17 +49,33 @@ app.controller('SucursalesBancariasDeleteCtrl', function($scope, $http, $routePa
 app.controller('SucursalesBancariasInsertCtrl', function($scope, $http, $location, $routeParams) {
     $scope.entidadesBancarias;
     $scope.sucursalBancaria = null;
-    
+
     $http.get("/proyecto1_banco_server/api/EntidadesBancarias").success(function(result) {
         $scope.entidadesBancarias = result;
     });
 
 
     $scope.insertSucursalBancaria = function() {
-        $http.post("/proyecto1_banco_server/api/SucursalBancaria/"+$routeParams.id, $scope.sucursalBancaria).success(function(result) {
+        $http.post("/proyecto1_banco_server/api/SucursalBancaria/" + $routeParams.id, $scope.sucursalBancaria).success(function(result) {
+            $scope.ListaMensajes = [];
             $scope.sucursalBancaria = result;
+            $location.path("/EntidadBancaria/" + $routeParams.id + "/SucursalesBancarias");
+        }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+            $location.path("/SucursalesBancariasInsert/" + $routeParams.id)
         });
-        $location.path("/EntidadBancaria/"+$routeParams.id+"/SucursalesBancarias");
+
     };
 });
 
@@ -57,9 +87,25 @@ app.controller('SucursalesBancariasUpdateCtrl', function($scope, $http, $routePa
         //http://localhost:8084
         $http.put("/proyecto1_banco_server/api/SucursalBancaria/"
                 + $routeParams.id, $scope.sucursalBancaria).success(function(result) {
+            $scope.ListaMensajes = [];
             $scope.sucursalBancaria = result;
+            $location.path("/SucursalesBancarias");
+        }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+                $location.path("/SucursalesBancariasUpdate/" + $routeParams.id)
         });
-        $location.path("/SucursalesBancarias");
+
     };
 
     $http.get("/proyecto1_banco_server/api/SucursalBancaria/id/" + $routeParams.id).success(function(r) {
@@ -73,9 +119,37 @@ app.controller('SucursalesPorEntidad', function($scope, $http, $routeParams) {
     $scope.sucursalesBancarias = null;
 
     $http.get("/proyecto1_banco_server/api/EntidadBancaria/id/" + idEntidad).success(function(r) {
+        $scope.ListaMensajes = [];
         $scope.entidadBancaria = r;
         $http.get("/proyecto1_banco_server/api/EntidadBancaria/" + $scope.entidadBancaria.idEntidad + "/SucursalesBancarias").success(function(result) {
+            $scope.ListaMensajes = [];
             $scope.sucursalesBancarias = result;
-        });
-    });
+        }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+            });
+    }).error(function(data,status) {
+            switch (status) {
+                case 400 :
+                    data='Bad Request';
+                break;
+                case 500 :
+                    data='Internal Server Error';
+                break;
+                default:
+                    data='Could not perform this request';
+                    break;
+            }
+                $scope.ListaMensajes = [{datos: status , mensaje: data}];
+            });
 });
