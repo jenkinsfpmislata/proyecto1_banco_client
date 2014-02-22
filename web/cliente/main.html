@@ -7,14 +7,14 @@
         </table>
     </div>  
     <div id="usuario">
-        <h3>{{cuentaBancaria.idUsuario.nombre}}</h3>
-        <p>Account Type: <i>{{cuentaBancaria.idUsuario.tipoUsuario}}</i></p>
+        <h3>{{usuario.nombre}}</h3>
+        <p>Account Type: <i>{{usuario.tipoUsuario}}</i></p>
     </div>
     <div class="border"></div>
     <div id="saldo">
         <h3>Current cash:{{cuentaBancaria.saldo}}&euro;</h3>
         <p>Current cash in euros: {{cuentaBancaria.saldo}}&euro;</p>
-        <p>Current cash in dollars: 5034,43&dollar;</p>
+        <p>Current cash in dollars: {{cuentaBancaria.saldo*1.3}}&dollar;</p>
         <h3>Current cash(Pending transfers - current cash): {{cuentaBancaria.saldo}}&euro;</h3>
     </div>
 
