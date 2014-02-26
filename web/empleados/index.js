@@ -116,6 +116,11 @@ app.config(function($routeProvider) {
                 templateUrl: "MovimientosBancarios/FormUpdateTransactions.html",
                 controller: "MovimientosBancariosUpdateCtrl"
             })
+            
+            .when("/Credito/:id",{
+                templateUrl: "Creditos/Creditos.html",
+                controller: "CreditosCtrl"
+            })
 
             .otherwise({
                 redirectTo: "/"
