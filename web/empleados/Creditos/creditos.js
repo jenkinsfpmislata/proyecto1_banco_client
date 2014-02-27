@@ -3,15 +3,14 @@ app.controller('CreditosCtrl', function($scope, $http, $routeParams, $location){
    
     $scope.creditoInsert = function() {
         $http.post("/proyecto1_banco_server/api/Credito/"+$routeParams.id, $scope.credito).success(function(){
-             $scope.listaMensajes = [];
-             $location.path("/CuentasBancarias");
+             $scope.ListaMensajes = [];
         }).error(function(data,status){
             if (status == 400) {
                 data = 'Bad Request';
             }else{
-                data = 'Could not perform this request';
+                data = 'Este usuario tiene deudas';
             }
-            $scope.listaMensajes=[{datos: status, mensaje: data}];
+            $scope.ListaMensajes=[{datos: status, mensaje: data}];
         });
     };
 });
